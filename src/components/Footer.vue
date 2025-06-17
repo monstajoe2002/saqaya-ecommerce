@@ -1,13 +1,33 @@
 <template>
     <footer class="footer">
-        <div>
-            <h3>Navigate</h3>
-            <ul class="footer-links">
-                <li>About</li>
-                <li>Blog</li>
-                <li>Contact Us</li>
-                <li>Sitemap</li>
-            </ul>
+        <div class="footer-grid">
+            <div>
+                <h3>Navigate</h3>
+                <ul class="footer-links">
+                    <li>About</li>
+                    <li>Blog</li>
+                    <li>Contact Us</li>
+                    <li>Sitemap</li>
+                </ul>
+            </div>
+            <div>
+                <h3>Collection</h3>
+                <ul class="footer-links">
+                    <li>New arrivals</li>
+                    <li>Featured</li>
+                    <li>Catalog</li>
+                    <li>Brands</li>
+                </ul>
+            </div>
+            <div>
+                <h3>Categories</h3>
+                <ul class="footer-links">
+                    <li>Tables</li>
+                    <li>Lamps</li>
+                    <li>Chairs</li>
+                    <li>Sofas</li>
+                </ul>
+            </div>
         </div>
     </footer>
 
@@ -17,6 +37,12 @@
 .footer {
     padding: 1rem;
     background-color: #acade9;
+}
+
+.footer-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
 }
 
 .footer-links {
