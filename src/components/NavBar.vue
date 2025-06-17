@@ -15,6 +15,7 @@ import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome';
         </nav>
     </header>
     <FontAwesomeIcon :icon="faMagnifyingGlass" />
+    <a href="/sign-in">Sign In</a>
 </template>
 
 
