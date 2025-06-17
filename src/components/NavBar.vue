@@ -1,11 +1,12 @@
 <script setup lang="ts">
-import { faCartShopping, faMagnifyingGlass } from '@fortawesome/free-solid-svg-icons';
+import { faBars, faCartShopping, faMagnifyingGlass } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome';
 </script>
 
 <template>
     <header>
         <nav class="navbar">
+            <FontAwesomeIcon class="mobile-menu" :icon="faBars" />
             <div :style="{ display: 'flex', gap: '8px', alignItems: 'center' }">
                 <!-- Logo -->
                 <svg width="67" height="41" viewBox="0 0 67 41" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -56,10 +57,23 @@ import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome';
     cursor: pointer;
 }
 
+.mobile-menu {
+    font-size: 24px;
+    padding-inline: 8px;
+}
+
 @media screen and (max-width:900px) {
 
     .navlinks,
     .search {
+        display: none;
+    }
+
+}
+
+@media screen and (min-width:900px) {
+
+    .mobile-menu {
         display: none;
     }
 
