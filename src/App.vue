@@ -23,5 +23,6 @@ import NavBar from './components/NavBar.vue';
 
 .container {
   min-height: 100vh;
+  overflow: auto;
 }
 </style>
