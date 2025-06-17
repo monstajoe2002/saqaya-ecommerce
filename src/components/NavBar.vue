@@ -33,6 +33,10 @@ import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome';
 
 
 <style scoped>
+svg {
+    font-size: 1.25rem;
+}
+
 .navbar {
     display: flex;
     justify-content: space-between;
