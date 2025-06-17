@@ -13,8 +13,7 @@ import NavBar from './components/NavBar.vue';
 <style>
 *,
 *::before,
-*::after,
-a {
+*::after {
   margin: 0;
   padding: 0;
   border: 0;
