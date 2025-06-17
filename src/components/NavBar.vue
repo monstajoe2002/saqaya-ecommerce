@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { faMagnifyingGlass } from '@fortawesome/free-solid-svg-icons';
+import { faCartShopping, faMagnifyingGlass } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome';
 
 </script>
@@ -16,6 +16,9 @@ import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome';
     </header>
     <FontAwesomeIcon :icon="faMagnifyingGlass" />
     <a href="/sign-in">Sign In</a>
+    <button>
+        <FontAwesomeIcon :icon="faCartShopping" />
+    </button>
 </template>
 
 
@@ -32,5 +35,9 @@ import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome';
     padding: 10px 15px;
     color: black;
     font-family: 'Poppins', sans-serif;
+}
+
+.cart-btn {
+    /* TODO */
 }
 </style>
