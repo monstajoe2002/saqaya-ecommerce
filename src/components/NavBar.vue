@@ -65,6 +65,7 @@ import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome';
 @media screen and (max-width:900px) {
 
     .navlinks,
+    .navlink,
     .search {
         display: none;
     }
