@@ -14,7 +14,7 @@ import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome';
             </ul>
             <div :style="{ gap: '16px', display: 'flex', alignItems: 'center' }">
                 <FontAwesomeIcon :icon="faMagnifyingGlass" />
-                <a href="/sign-in">Sign In</a>
+                <a class="navlink" href="/sign-in">Sign In</a>
                 <button class="cart-btn">
                     <FontAwesomeIcon :icon="faCartShopping" />
                 </button>
@@ -28,6 +28,7 @@ import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome';
 .navbar {
     display: flex;
     justify-content: space-between;
+    align-items: center;
 }
 
 .navlinks {
