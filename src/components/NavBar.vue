@@ -20,7 +20,7 @@ import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome';
                 </ul>
             </div>
             <div :style="{ gap: '16px', display: 'flex', alignItems: 'center' }">
-                <FontAwesomeIcon :icon="faMagnifyingGlass" />
+                <FontAwesomeIcon class="search" :icon="faMagnifyingGlass" />
                 <a class="navlink" href="/sign-in">Sign In</a>
                 <button class="cart-btn">
                     <FontAwesomeIcon :icon="faCartShopping" />
@@ -54,5 +54,14 @@ import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome';
 
 .cart-btn {
     cursor: pointer;
+}
+
+@media screen and (max-width:900px) {
+
+    .navlinks,
+    .search {
+        display: none;
+    }
+
 }
 </style>
