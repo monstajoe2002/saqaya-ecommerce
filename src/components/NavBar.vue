@@ -6,27 +6,33 @@ import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome';
 
 <template>
     <header>
-        <nav>
+        <nav class="navbar">
             <ul class="navlinks">
                 <li><a href="/" class="navlink">Home</a></li>
                 <li><a href="/products" class="navlink">Products</a></li>
                 <li><a href="/contact" class="navlink">Contact Us</a></li>
             </ul>
+            <div :style="{ gap: '16px', display: 'flex', alignItems: 'center' }">
+                <FontAwesomeIcon :icon="faMagnifyingGlass" />
+                <a href="/sign-in">Sign In</a>
+                <button class="cart-btn">
+                    <FontAwesomeIcon :icon="faCartShopping" />
+                </button>
+            </div>
         </nav>
     </header>
-    <FontAwesomeIcon :icon="faMagnifyingGlass" />
-    <a href="/sign-in">Sign In</a>
-    <button class="cart-btn">
-        <FontAwesomeIcon :icon="faCartShopping" />
-    </button>
 </template>
 
 
 <style scoped>
+.navbar {
+    display: flex;
+    justify-content: space-between;
+}
+
 .navlinks {
     display: flex;
     flex-direction: row;
-    align-items: center;
     list-style: none;
 }
 
