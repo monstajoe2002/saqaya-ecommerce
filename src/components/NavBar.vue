@@ -1,3 +1,9 @@
+<script setup lang="ts">
+import { faMagnifyingGlass } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome';
+
+</script>
+
 <template>
     <header>
         <nav>
@@ -8,6 +14,7 @@
             </ul>
         </nav>
     </header>
+    <FontAwesomeIcon :icon="faMagnifyingGlass" />
 </template>
 
 
