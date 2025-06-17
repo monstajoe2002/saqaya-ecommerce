@@ -42,6 +42,8 @@ svg {
     justify-content: space-between;
     align-items: center;
     padding: 0.5rem;
+    border-bottom: solid thin;
+    border-color: #ccc;
 }
 
 .navlinks {
