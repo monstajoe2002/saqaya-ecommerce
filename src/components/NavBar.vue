@@ -16,7 +16,7 @@ import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome';
     </header>
     <FontAwesomeIcon :icon="faMagnifyingGlass" />
     <a href="/sign-in">Sign In</a>
-    <button>
+    <button class="cart-btn">
         <FontAwesomeIcon :icon="faCartShopping" />
     </button>
 </template>
@@ -38,6 +38,6 @@ import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome';
 }
 
 .cart-btn {
-    /* TODO */
+    cursor: pointer;
 }
 </style>
