@@ -55,6 +55,7 @@ import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome';
 
 .cart-btn {
     cursor: pointer;
+    background: none;
 }
 
 .mobile-menu {
