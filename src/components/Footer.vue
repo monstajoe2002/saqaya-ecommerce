@@ -55,10 +55,12 @@ import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome';
 <style scoped>
 .footer {
     display: grid;
-    grid-template-rows: auto 1fr;
-    grid-template-columns: 1fr;
-    padding: 1rem;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+    gap: 8px;
+    padding: 1.25rem;
     background-color: #acade9;
+    /* max-width: 100dvw; */
 }
 
 .footer-grid {
