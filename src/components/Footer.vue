@@ -1,3 +1,9 @@
+<script setup lang="ts">
+import { faTwitterSquare, faInstagramSquare, faPinterestSquare, faFacebookSquare } from '@fortawesome/free-brands-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome';
+
+</script>
+
 <template>
     <footer class="footer">
         <div class="footer-grid">
@@ -35,6 +41,13 @@
             <p>+602-926-5809</p>
         </div>
         <p>Copyright © All Rights Reserved 2020</p>
+        <div class="social-media">
+            <p :style="{ fontWeight: 'bold' }">Get social</p>
+            <FontAwesomeIcon :icon="faTwitterSquare" />
+            <FontAwesomeIcon :icon="faInstagramSquare" />
+            <FontAwesomeIcon :icon="faPinterestSquare" />
+            <FontAwesomeIcon :icon="faFacebookSquare" />
+        </div>
     </footer>
 
 </template>
