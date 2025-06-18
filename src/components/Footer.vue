@@ -34,6 +34,7 @@
             <p>asff@fdsfsdc.com</p>
             <p>+602-926-5809</p>
         </div>
+        <p>Copyright © All Rights Reserved 2020</p>
     </footer>
 
 </template>
