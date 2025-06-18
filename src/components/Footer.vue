@@ -35,7 +35,7 @@ import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome';
                 </ul>
             </div>
         </div>
-        <div>
+        <div :style="{height: '100%', justifyContent:'end'}">
             <h2>399 Crowfield Road, Phoenix, Arizona 85012</h2>
             <p>asff@fdsfsdc.com</p>
             <p>+602-926-5809</p>
@@ -57,10 +57,11 @@ import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome';
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     grid-template-rows: repeat(2, 1fr);
-    gap: 8px;
+    gap: 1.5rem;
     padding: 1.25rem;
     background-color: #acade9;
     align-items: end;
+    
 }
 
 .footer-grid {
