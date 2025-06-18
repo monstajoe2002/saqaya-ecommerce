@@ -60,7 +60,7 @@ import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome';
     gap: 8px;
     padding: 1.25rem;
     background-color: #acade9;
-    /* max-width: 100dvw; */
+    align-items: end;
 }
 
 .footer-grid {
