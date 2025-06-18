@@ -80,4 +80,8 @@ import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome';
     gap: 0.5rem;
     align-items: center;
 }
+
+.social-media svg {
+    font-size: 1.5rem;
+}
 </style>
