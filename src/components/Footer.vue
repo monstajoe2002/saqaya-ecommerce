@@ -29,6 +29,11 @@
                 </ul>
             </div>
         </div>
+        <div class="contact-info">
+            <h2>399 Crowfield Road, Phoenix, Arizona 85012</h2>
+            <p>asff@fdsfsdc.com</p>
+            <p>+602-926-5809</p>
+        </div>
     </footer>
 
 </template>
