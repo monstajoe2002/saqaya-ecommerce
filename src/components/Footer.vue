@@ -74,4 +74,10 @@ import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome';
 .contact-info {
     margin-block: 1rem;
 }
+
+.social-media {
+    display: flex;
+    gap: 0.5rem;
+    align-items: center;
+}
 </style>
