@@ -40,6 +40,9 @@
 
 <style scoped>
 .footer {
+    display: grid;
+    grid-template-rows: auto 1fr;
+    grid-template-columns: 1fr;
     padding: 1rem;
     background-color: #acade9;
 }
