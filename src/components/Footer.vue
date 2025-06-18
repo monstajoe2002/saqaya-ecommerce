@@ -53,4 +53,8 @@
 .footer-links {
     list-style: none;
 }
+
+.contact-info {
+    margin-block: 1rem;
+}
 </style>
