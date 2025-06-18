@@ -69,7 +69,7 @@ svg {
     padding-inline: 8px;
 }
 
-@media screen and (max-width:900px) {
+@media screen and (max-width:768px) {
 
     .navlinks,
     .navlink,
@@ -79,7 +79,7 @@ svg {
 
 }
 
-@media screen and (min-width:900px) {
+@media screen and (min-width:768px) {
 
     .mobile-menu {
         display: none;
