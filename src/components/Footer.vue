@@ -86,4 +86,10 @@ import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome';
 .social-media svg {
     font-size: 1.5rem;
 }
+
+@media screen and (max-width: 768px) {
+    .footer {
+        grid-template-columns: 1fr;
+    }
+}
 </style>
