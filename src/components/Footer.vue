@@ -35,7 +35,7 @@ import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome';
                 </ul>
             </div>
         </div>
-        <div class="contact-info">
+        <div>
             <h2>399 Crowfield Road, Phoenix, Arizona 85012</h2>
             <p>asff@fdsfsdc.com</p>
             <p>+602-926-5809</p>
@@ -71,10 +71,6 @@ import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome';
 
 .footer-links {
     list-style: none;
-}
-
-.contact-info {
-    margin-block: 1rem;
 }
 
 .social-media {
