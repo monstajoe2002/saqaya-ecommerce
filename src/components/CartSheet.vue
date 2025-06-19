@@ -6,6 +6,7 @@
                 <button class="cart__close" @click="toggleCart(false)">&times;</button>
             </div>
             <div class="cart__content">
+                <p class="cart__empty-fallback">Your cart is empty. Add items here.</p>
                 <!-- Cart items will go here -->
             </div>
         </aside>
@@ -58,6 +59,12 @@ export default {
     font-size: 1.5rem;
     cursor: pointer;
     color: white;
+}
+
+.cart__empty-fallback {
+    text-align: center;
+    margin-top: 2rem;
+    color: #ccc;
 }
 
 .cart__overlay {
