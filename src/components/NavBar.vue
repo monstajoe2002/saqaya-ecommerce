@@ -1,6 +1,25 @@
-<script setup lang="ts">
+<script lang="ts">
 import { faBars, faCartShopping, faMagnifyingGlass } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome';
+export default {
+    name: 'NavBar',
+    components: {
+        FontAwesomeIcon
+    },
+    data() {
+        return {
+            faBars,
+            faCartShopping,
+            faMagnifyingGlass,
+            isCartOpen: false
+        };
+    },
+    methods: {
+        toggleCart() {
+            this.isCartOpen = !this.isCartOpen;
+        }
+    }
+};
 </script>
 
 <template>
