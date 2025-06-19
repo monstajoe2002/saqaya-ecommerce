@@ -6,50 +6,49 @@ import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome';
 
 <template>
     <footer class="footer">
-        <div class="footer-grid">
-            <div>
-                <h3>Navigate</h3>
-                <ul class="footer-links">
-                    <li>About</li>
-                    <li>Blog</li>
-                    <li>Contact Us</li>
-                    <li>Sitemap</li>
+        <div class="footer__nav-grid">
+            <div class="footer__nav-section">
+                <h3 class="footer__heading">Navigate</h3>
+                <ul class="footer__list">
+                    <li class="footer__list-item">About</li>
+                    <li class="footer__list-item">Blog</li>
+                    <li class="footer__list-item">Contact Us</li>
+                    <li class="footer__list-item">Sitemap</li>
                 </ul>
             </div>
-            <div>
-                <h3>Collection</h3>
-                <ul class="footer-links">
-                    <li>New arrivals</li>
-                    <li>Featured</li>
-                    <li>Catalog</li>
-                    <li>Brands</li>
+            <div class="footer__nav-section">
+                <h3 class="footer__heading">Collection</h3>
+                <ul class="footer__list">
+                    <li class="footer__list-item">New arrivals</li>
+                    <li class="footer__list-item">Featured</li>
+                    <li class="footer__list-item">Catalog</li>
+                    <li class="footer__list-item">Brands</li>
                 </ul>
             </div>
-            <div>
-                <h3>Categories</h3>
-                <ul class="footer-links">
-                    <li>Tables</li>
-                    <li>Lamps</li>
-                    <li>Chairs</li>
-                    <li>Sofas</li>
+            <div class="footer__nav-section">
+                <h3 class="footer__heading">Categories</h3>
+                <ul class="footer__list">
+                    <li class="footer__list-item">Tables</li>
+                    <li class="footer__list-item">Lamps</li>
+                    <li class="footer__list-item">Chairs</li>
+                    <li class="footer__list-item">Sofas</li>
                 </ul>
             </div>
         </div>
-        <div :style="{height: '100%', justifyContent:'end'}">
-            <h2>399 Crowfield Road, Phoenix, Arizona 85012</h2>
-            <p>asff@fdsfsdc.com</p>
-            <p>+602-926-5809</p>
+        <div class="footer__contact">
+            <h2 class="footer__address">399 Crowfield Road, Phoenix, Arizona 85012</h2>
+            <p class="footer__email">asff@fdsfsdc.com</p>
+            <p class="footer__phone">+602-926-5809</p>
         </div>
-        <p>Copyright © All Rights Reserved 2020</p>
-        <div class="social-media">
-            <p :style="{ fontWeight: 'bold' }">Get social</p>
-            <FontAwesomeIcon :icon="faTwitterSquare" />
-            <FontAwesomeIcon :icon="faInstagramSquare" />
-            <FontAwesomeIcon :icon="faPinterestSquare" />
-            <FontAwesomeIcon :icon="faFacebookSquare" />
+        <p class="footer__copyright">Copyright © All Rights Reserved 2020</p>
+        <div class="footer__social">
+            <p class="footer__social-heading">Get social</p>
+            <FontAwesomeIcon class="footer__social-icon" :icon="faTwitterSquare" />
+            <FontAwesomeIcon class="footer__social-icon" :icon="faInstagramSquare" />
+            <FontAwesomeIcon class="footer__social-icon" :icon="faPinterestSquare" />
+            <FontAwesomeIcon class="footer__social-icon" :icon="faFacebookSquare" />
         </div>
     </footer>
-
 </template>
 
 <style scoped>
@@ -61,26 +60,38 @@ import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome';
     padding: 1.25rem;
     background-color: #acade9;
     align-items: end;
-    
 }
 
-.footer-grid {
+.footer__nav-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 1rem;
 }
 
-.footer-links {
+.footer__list {
     list-style: none;
 }
 
-.social-media {
+.footer__list-item {
+    margin-bottom: 0.5rem;
+}
+
+.footer__contact {
+    height: 100%;
+    justify-content: end;
+}
+
+.footer__social {
     display: flex;
     gap: 0.5rem;
     align-items: center;
 }
 
-.social-media svg {
+.footer__social-heading {
+    font-weight: bold;
+}
+
+.footer__social-icon {
     font-size: 1.5rem;
 }
 
