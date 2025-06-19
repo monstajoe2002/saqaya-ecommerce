@@ -4,13 +4,15 @@ import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome';
 import StoreLogo from './StoreLogo.vue';
 import NavbarLinks from './NavbarLinks.vue'
 import CartButton from './CartButton.vue'
+import SearchInput from './SearchInput.vue'
 export default {
     name: 'NavBar',
     components: {
         FontAwesomeIcon,
         StoreLogo,
         NavbarLinks,
-        CartButton
+        CartButton,
+        SearchInput
     },
     data() {
         return {
@@ -31,8 +33,8 @@ export default {
                 <NavbarLinks />
             </div>
             <div class="navbar__right">
-                <FontAwesomeIcon class="navbar__search" :icon="faMagnifyingGlass" />
-                <a class="navbar__link" href="#">Sign In</a>
+                <SearchInput />
+                <a class="navbar__sign-in" href="#">Sign In</a>
                 <CartButton />
             </div>
         </nav>
@@ -81,9 +83,7 @@ export default {
 
 @media screen and (max-width:768px) {
 
-    .navbar__links,
-    .navbar__link,
-    .navbar__search {
+    .navbar__sign-in {
         display: none;
     }
 }
