@@ -68,6 +68,7 @@ import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome';
 .navbar__cart-btn {
     cursor: pointer;
     background: none;
+    font-size: 1.25rem;
 }
 
 .navbar__mobile-menu {
