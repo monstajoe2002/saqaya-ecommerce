@@ -60,10 +60,6 @@ export default {
     border-color: #ccc;
 }
 
-.navbar__logo {
-    font-size: 1.25rem;
-}
-
 .navbar__left {
     display: flex;
     gap: 8px;
