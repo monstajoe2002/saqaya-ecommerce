@@ -3,13 +3,14 @@
         <aside v-if="isOpen" class="cart">
             <div class="cart__header">
                 <h1 class="cart__title">Cart</h1>
-                <button class="cart__close" @click="closeCart">&times;</button>
+                <button class="cart__close" @click="toggleCart(false)">&times;</button>
             </div>
             <div class="cart__content">
                 <!-- Cart items will go here -->
             </div>
         </aside>
     </Transition>
+    <div v-if="isOpen" class="cart__overlay" @click="toggleCart(false)"></div>
 </template>
 
 <script lang="ts">
@@ -21,9 +22,10 @@ export default {
             default: false
         }
     },
+    emits: ['toggle-cart'],
     methods: {
-        closeCart() {
-            this.$emit('update:isOpen', false)
+        toggleCart(isOpen: boolean) {
+            this.$emit('toggle-cart', isOpen)
         }
     }
 }
@@ -54,6 +56,16 @@ export default {
     border: none;
     font-size: 1.5rem;
     cursor: pointer;
+}
+
+.cart__overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 999;
 }
 
 /* Slide transition animations */

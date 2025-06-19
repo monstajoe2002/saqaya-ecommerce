@@ -45,12 +45,12 @@ export default {
             <div class="navbar__right">
                 <FontAwesomeIcon class="navbar__search" :icon="faMagnifyingGlass" />
                 <a class="navbar__link" href="/sign-in">Sign In</a>
-                <button class="navbar__cart-btn">
+                <button class="navbar__cart-btn" @click="toggleCart">
                     <FontAwesomeIcon :icon="faCartShopping" />
                 </button>
             </div>
         </nav>
-        <CartSheet :is-open="isCartOpen" @closeCart="toggleCart" />
+        <CartSheet :isOpen="isCartOpen" @toggle-cart="toggleCart" />
     </header>
 </template>
 
