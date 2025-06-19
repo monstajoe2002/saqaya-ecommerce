@@ -1,0 +1,39 @@
+<script lang="ts">
+import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome';
+import { faCartShopping } from '@fortawesome/free-solid-svg-icons';
+import CartSheet from './CartSheet.vue'; // Add this import
+
+export default {
+    name: 'CartButton',
+    components: {
+        FontAwesomeIcon,
+        CartSheet
+    },
+    data() {
+        return {
+            faCartShopping,
+            isCartOpen: false
+        };
+    },
+    methods: {
+        toggleCart() {
+            this.isCartOpen = !this.isCartOpen;
+        }
+    }
+}
+</script>
+
+<template>
+    <button class="navbar__cart-btn" @click="toggleCart">
+        <FontAwesomeIcon :icon="faCartShopping" />
+    </button>
+    <CartSheet :isOpen="isCartOpen" @toggle-cart="toggleCart" />
+</template>
+
+<style scoped>
+.navbar__cart-btn {
+    cursor: pointer;
+    background: none;
+    font-size: 1.25rem;
+}
+</style>

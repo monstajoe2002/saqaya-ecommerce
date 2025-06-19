@@ -1,30 +1,24 @@
 <script lang="ts">
-import { faBars, faCartShopping, faMagnifyingGlass } from '@fortawesome/free-solid-svg-icons';
+import { faBars, faMagnifyingGlass } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome';
-import CartSheet from './CartSheet.vue';
 import StoreLogo from './StoreLogo.vue';
 import NavbarLinks from './NavbarLinks.vue'
+import CartButton from './CartButton.vue'
 export default {
     name: 'NavBar',
     components: {
         FontAwesomeIcon,
-        CartSheet,
         StoreLogo,
-        NavbarLinks
+        NavbarLinks,
+        CartButton
     },
     data() {
         return {
             faBars,
-            faCartShopping,
             faMagnifyingGlass,
-            isCartOpen: false
         };
     },
-    methods: {
-        toggleCart() {
-            this.isCartOpen = !this.isCartOpen;
-        }
-    }
+
 };
 </script>
 
@@ -39,12 +33,10 @@ export default {
             <div class="navbar__right">
                 <FontAwesomeIcon class="navbar__search" :icon="faMagnifyingGlass" />
                 <a class="navbar__link" href="/sign-in">Sign In</a>
-                <button class="navbar__cart-btn" @click="toggleCart">
-                    <FontAwesomeIcon :icon="faCartShopping" />
-                </button>
+                <CartButton />
             </div>
         </nav>
-        <CartSheet :isOpen="isCartOpen" @toggle-cart="toggleCart" />
+
     </header>
 </template>
 
