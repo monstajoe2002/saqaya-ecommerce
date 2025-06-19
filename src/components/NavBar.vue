@@ -70,13 +70,18 @@ export default {
     display: flex;
     flex-direction: row;
     list-style: none;
+    gap: 8px;
 }
 
 .navbar__link {
     text-decoration: none;
-    padding: 10px 15px;
     color: black;
-    font-family: 'Poppins', sans-serif;
+}
+
+.navbar__sign-in {
+    text-decoration: none;
+    color: black;
+
 }
 
 .navbar__cart-btn {
