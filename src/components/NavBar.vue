@@ -1,10 +1,12 @@
 <script lang="ts">
 import { faBars, faCartShopping, faMagnifyingGlass } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome';
+import CartSheet from './CartSheet.vue';
 export default {
     name: 'NavBar',
     components: {
-        FontAwesomeIcon
+        FontAwesomeIcon,
+        CartSheet
     },
     data() {
         return {
@@ -48,6 +50,7 @@ export default {
                 </button>
             </div>
         </nav>
+        <CartSheet :is-open="isCartOpen" @closeCart="toggleCart" />
     </header>
 </template>
 
