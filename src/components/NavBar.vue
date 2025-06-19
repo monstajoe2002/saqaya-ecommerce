@@ -3,12 +3,14 @@ import { faBars, faCartShopping, faMagnifyingGlass } from '@fortawesome/free-sol
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome';
 import CartSheet from './CartSheet.vue';
 import StoreLogo from './StoreLogo.vue';
+import NavbarLinks from './NavbarLinks.vue'
 export default {
     name: 'NavBar',
     components: {
         FontAwesomeIcon,
         CartSheet,
-        StoreLogo
+        StoreLogo,
+        NavbarLinks
     },
     data() {
         return {
@@ -32,11 +34,7 @@ export default {
             <FontAwesomeIcon class="navbar__mobile-menu" :icon="faBars" />
             <div class="navbar__left">
                 <StoreLogo />
-                <ul class="navbar__links">
-                    <li><a href="/" class="navbar__link">Home</a></li>
-                    <li><a href="/products" class="navbar__link">Products</a></li>
-                    <li><a href="/contact" class="navbar__link">Contact Us</a></li>
-                </ul>
+                <NavbarLinks />
             </div>
             <div class="navbar__right">
                 <FontAwesomeIcon class="navbar__search" :icon="faMagnifyingGlass" />
@@ -64,18 +62,6 @@ export default {
     display: flex;
     gap: 8px;
     align-items: center;
-}
-
-.navbar__links {
-    display: flex;
-    flex-direction: row;
-    list-style: none;
-    gap: 8px;
-}
-
-.navbar__link {
-    text-decoration: none;
-    color: black;
 }
 
 .navbar__sign-in {
