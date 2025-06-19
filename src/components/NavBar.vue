@@ -32,7 +32,7 @@ export default {
             </div>
             <div class="navbar__right">
                 <FontAwesomeIcon class="navbar__search" :icon="faMagnifyingGlass" />
-                <a class="navbar__link" href="/sign-in">Sign In</a>
+                <a class="navbar__link" href="#">Sign In</a>
                 <CartButton />
             </div>
         </nav>
