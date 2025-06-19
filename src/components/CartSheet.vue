@@ -5,6 +5,7 @@
                 <h1 class="cart__title">Cart</h1>
                 <button class="cart__close" @click="toggleCart(false)">&times;</button>
             </div>
+            <hr class="cart__border" />
             <div class="cart__content">
                 <p class="cart__empty-fallback">Your cart is empty. Add items here.</p>
                 <!-- Cart items will go here -->
@@ -59,6 +60,11 @@ export default {
     font-size: 1.5rem;
     cursor: pointer;
     color: white;
+}
+
+.cart__border {
+    border-bottom: 1px solid #ccc;
+    margin-bottom: 1rem;
 }
 
 .cart__empty-fallback {
