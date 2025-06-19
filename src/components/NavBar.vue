@@ -6,24 +6,25 @@ import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome';
 <template>
     <header>
         <nav class="navbar">
-            <FontAwesomeIcon class="mobile-menu" :icon="faBars" />
-            <div :style="{ display: 'flex', gap: '8px', alignItems: 'center' }">
+            <FontAwesomeIcon class="navbar__mobile-menu" :icon="faBars" />
+            <div class="navbar__left">
                 <!-- Logo -->
-                <svg width="67" height="41" viewBox="0 0 67 41" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <svg class="navbar__logo" width="67" height="41" viewBox="0 0 67 41" fill="none"
+                    xmlns="http://www.w3.org/2000/svg">
                     <path
                         d="M45.0353 4.66312C45.8331 3.77669 46.7195 3.04539 47.6281 2.46921C49.2236 1.47198 50.9079 0.940125 52.6364 0.940125V15.411C51.3732 11.0232 48.6475 7.25591 45.0353 4.66312ZM66.5533 40.9401H15.2957C6.87461 40.9401 0.0712891 34.1146 0.0712891 25.7157C0.0712891 17.6714 6.3206 11.0675 14.232 10.5135V0.940125C16.0048 0.940125 17.7555 1.44982 19.3954 2.46921C20.304 3.02323 21.1904 3.75453 21.9882 4.59663C25.2458 2.31409 29.1904 0.984446 33.4674 0.984446C33.4674 10.2254 30.1433 20.9734 19.3289 20.9955H33.3566C32.9577 19.2005 31.3178 17.8709 29.3677 17.8487H37.5228C35.5727 17.8487 33.9328 19.2005 33.5339 21.0177H46.6087C49.2236 21.0177 51.8164 21.5274 54.2541 22.5468C56.6696 23.544 58.8857 25.0288 60.725 26.8681C62.5865 28.7296 64.0491 30.9235 65.0464 33.339C66.0436 35.7324 66.5533 38.3252 66.5533 40.9401ZM22.8525 10.7795C23.1849 11.6437 24.0713 12.6188 25.3123 13.3279C26.5533 14.0371 27.8386 14.3252 28.7472 14.1922C28.4148 13.3279 27.5284 12.3529 26.2874 11.6437C25.0464 10.9346 23.761 10.6465 22.8525 10.7795ZM41.5117 13.3279C40.2707 14.0371 38.9854 14.3252 38.0768 14.1922C38.4092 13.3279 39.2957 12.3529 40.5367 11.6437C41.7777 10.9346 43.063 10.6465 43.9716 10.7795C43.6613 11.6437 42.7527 12.6188 41.5117 13.3279Z"
                         fill="#283841"></path>
                 </svg>
-                <ul class="navlinks">
-                    <li><a href="/" class="navlink">Home</a></li>
-                    <li><a href="/products" class="navlink">Products</a></li>
-                    <li><a href="/contact" class="navlink">Contact Us</a></li>
+                <ul class="navbar__links">
+                    <li><a href="/" class="navbar__link">Home</a></li>
+                    <li><a href="/products" class="navbar__link">Products</a></li>
+                    <li><a href="/contact" class="navbar__link">Contact Us</a></li>
                 </ul>
             </div>
-            <div :style="{ gap: '16px', display: 'flex', alignItems: 'center' }">
-                <FontAwesomeIcon class="search" :icon="faMagnifyingGlass" />
-                <a class="navlink" href="/sign-in">Sign In</a>
-                <button class="cart-btn">
+            <div class="navbar__right">
+                <FontAwesomeIcon class="navbar__search" :icon="faMagnifyingGlass" />
+                <a class="navbar__link" href="/sign-in">Sign In</a>
+                <button class="navbar__cart-btn">
                     <FontAwesomeIcon :icon="faCartShopping" />
                 </button>
             </div>
@@ -31,12 +32,7 @@ import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome';
     </header>
 </template>
 
-
 <style scoped>
-svg {
-    font-size: 1.25rem;
-}
-
 .navbar {
     display: flex;
     justify-content: space-between;
@@ -46,44 +42,57 @@ svg {
     border-color: #ccc;
 }
 
-.navlinks {
+.navbar__logo {
+    font-size: 1.25rem;
+}
+
+.navbar__left {
+    display: flex;
+    gap: 8px;
+    align-items: center;
+}
+
+.navbar__links {
     display: flex;
     flex-direction: row;
     list-style: none;
 }
 
-.navlink {
+.navbar__link {
     text-decoration: none;
     padding: 10px 15px;
     color: black;
     font-family: 'Poppins', sans-serif;
 }
 
-.cart-btn {
+.navbar__cart-btn {
     cursor: pointer;
     background: none;
 }
 
-.mobile-menu {
+.navbar__mobile-menu {
     font-size: 24px;
     padding-inline: 8px;
 }
 
+.navbar__right {
+    gap: 16px;
+    display: flex;
+    align-items: center;
+}
+
 @media screen and (max-width:768px) {
 
-    .navlinks,
-    .navlink,
-    .search {
+    .navbar__links,
+    .navbar__link,
+    .navbar__search {
         display: none;
     }
-
 }
 
 @media screen and (min-width:768px) {
-
-    .mobile-menu {
+    .navbar__mobile-menu {
         display: none;
     }
-
 }
 </style>
