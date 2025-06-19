@@ -38,10 +38,11 @@ export default {
     right: 0;
     height: 100vh;
     width: 400px;
-    background: white;
+    background: #2e3d47;
     box-shadow: -2px 0 8px rgba(0, 0, 0, 0.1);
     z-index: 1000;
     padding: 1rem;
+    color: white;
 }
 
 .cart__header {
@@ -56,6 +57,7 @@ export default {
     border: none;
     font-size: 1.5rem;
     cursor: pointer;
+    color: white;
 }
 
 .cart__overlay {
