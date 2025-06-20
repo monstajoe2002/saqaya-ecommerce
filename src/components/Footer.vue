@@ -51,53 +51,52 @@ import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome';
     </footer>
 </template>
 
-<style scoped>
-.footer {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    grid-template-rows: repeat(2, 1fr);
-    gap: 1.5rem;
-    padding: 1.25rem;
-    background-color: #acade9;
-    align-items: end;
-}
+<style lang="sass" scoped>
+.footer
+    display: grid
+    grid-template-columns: repeat(2, 1fr)
+    grid-template-rows: repeat(2, 1fr)
+    gap: 1.5rem
+    padding: 1.25rem
+    background-color: #acade9
+    align-items: end
 
-.footer__nav-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 1rem;
-}
+.footer__nav-grid 
+    display: grid
+    grid-template-columns: repeat(3, 1fr)
+    gap: 1rem
 
-.footer__list {
-    list-style: none;
-}
 
-.footer__list-item {
-    margin-bottom: 0.5rem;
-}
+.footer__list 
+    list-style: none
 
-.footer__contact {
+
+.footer__list-item 
+    margin-bottom: 0.5rem
+
+
+.footer__contact 
     height: 100%;
     justify-content: end;
-}
 
-.footer__social {
-    display: flex;
-    gap: 0.5rem;
-    align-items: center;
-}
 
-.footer__social-heading {
-    font-weight: bold;
-}
+.footer__social 
+    display: flex
+    gap: 0.5rem
+    align-items: center
 
-.footer__social-icon {
-    font-size: 1.5rem;
-}
 
-@media screen and (max-width: 768px) {
-    .footer {
-        grid-template-columns: 1fr;
-    }
-}
+.footer__social-heading 
+    font-weight: bold
+
+
+.footer__social-icon 
+    font-size: 1.5rem
+
+
+@media screen and (max-width: 768px) 
+    .footer 
+        grid-template-columns: 1fr
+    
+
 </style>

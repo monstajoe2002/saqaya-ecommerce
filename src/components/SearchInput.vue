@@ -19,11 +19,11 @@ export default {
     <FontAwesomeIcon class="navbar__search" :icon="faMagnifyingGlass" />
 </template>
 
-<style scoped>
-@media screen and (max-width:768px) {
+<style lang="sass" scoped>
+@media screen and (max-width:768px)
 
-    .navbar__search {
-        display: none;
-    }
-}
+    .navbar__search 
+        display: none
+    
+
 </style>

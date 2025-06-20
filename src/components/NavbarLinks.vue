@@ -6,26 +6,22 @@
     </ul>
 </template>
 
-<style scoped>
-.navbar__links {
-    display: flex;
-    flex-direction: row;
-    list-style: none;
-    gap: 8px;
-}
+<style lang="sass" scoped>
+.navbar__links 
+    display: flex
+    flex-direction: row
+    list-style: none
+    gap: 8px
 
-.navbar__link {
-    text-decoration: none;
-    color: black;
-}
 
-@media screen and (max-width:768px) {
+.navbar__link 
+    text-decoration: none
+    color: black
 
+
+@media screen and (max-width:768px) 
     .navbar__links,
-    .navbar__link {
-        display: none;
-    }
-}
+    .navbar__link 
+        display: none
 
-@media screen and (min-width:768px) {}
 </style>

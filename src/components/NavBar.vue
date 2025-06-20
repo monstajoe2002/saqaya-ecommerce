@@ -42,55 +42,51 @@ export default {
     </header>
 </template>
 
-<style scoped>
-.navbar {
+<style lang="sass" scoped>
+.navbar 
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 0.5rem;
     border-bottom: solid thin;
     border-color: #ccc;
-}
 
-.navbar__left {
-    display: flex;
-    gap: 8px;
-    align-items: center;
-}
+    &__left 
+        display: flex;
+        gap: 8px;
+        align-items: center;
+    
 
-.navbar__sign-in {
-    text-decoration: none;
-    color: black;
+    &__sign-in 
+        text-decoration: none;
+        color: black;
 
-}
+    
 
-.navbar__cart-btn {
-    cursor: pointer;
-    background: none;
-    font-size: 1.25rem;
-}
+    &__cart-btn 
+        cursor: pointer;
+        background: none;
+        font-size: 1.25rem;
+    
 
-.navbar__mobile-menu {
-    font-size: 24px;
-    padding-inline: 8px;
-}
+    &__mobile-menu 
+        font-size: 24px;
+        padding-inline: 8px;
+    
 
-.navbar__right {
-    gap: 16px;
-    display: flex;
-    align-items: center;
-}
+    &__right 
+        gap: 16px;
+        display: flex;
+        align-items: center;
 
-@media screen and (max-width:768px) {
 
-    .navbar__sign-in {
+@media screen and (max-width:768px) 
+    .navbar__sign-in 
         display: none;
-    }
-}
 
-@media screen and (min-width:768px) {
-    .navbar__mobile-menu {
+@media screen and (min-width:768px) 
+    .navbar__mobile-menu 
         display: none;
-    }
-}
+    
+
 </style>

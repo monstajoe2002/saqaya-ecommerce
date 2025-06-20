@@ -30,10 +30,10 @@ export default {
     <CartSheet :isOpen="isCartOpen" @toggle-cart="toggleCart" />
 </template>
 
-<style scoped>
-.navbar__cart-btn {
-    cursor: pointer;
-    background: none;
-    font-size: 1.25rem;
-}
+<style lang="sass" scoped>
+.navbar__cart-btn 
+    cursor: pointer
+    background: none
+    font-size: 1.25rem
+
 </style>
