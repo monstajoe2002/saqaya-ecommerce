@@ -31,9 +31,10 @@ export default {
 </template>
 
 <style lang="sass" scoped>
-.navbar__cart-btn 
-    cursor: pointer
-    background: none
-    font-size: 1.25rem
+.navbar
+    &__cart-btn 
+        cursor: pointer
+        background: none
+        font-size: 1.25rem
 
 </style>

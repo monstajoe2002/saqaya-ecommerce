@@ -46,41 +46,40 @@ export default {
     padding: 1rem
     color: white
 
-
-.cart__header 
-    display: flex
-    justify-content: space-between
-    align-items: center
-    margin-bottom: 1rem
-
-
-.cart__close 
-    background: none
-    border: none
-    font-size: 1.5rem
-    cursor: pointer
-    color: white
+    &__header 
+        display: flex
+        justify-content: space-between
+        align-items: center
+        margin-bottom: 1rem
 
 
-.cart__border 
-    border-bottom: 1px solid #ccc
-    margin-bottom: 1rem
+    &__close 
+        background: none
+        border: none
+        font-size: 1.5rem
+        cursor: pointer
+        color: white
 
 
-.cart__empty-fallback 
-    text-align: center
-    margin-top: 2rem
-    color: #ccc
+    &__border 
+        border-bottom: 1px solid #ccc
+        margin-bottom: 1rem
 
 
-.cart__overlay 
-    position: fixed
-    top: 0
-    left: 0
-    right: 0
-    bottom: 0
-    background: rgba(0, 0, 0, 0.5)
-    z-index: 999
+    &__empty-fallback 
+        text-align: center
+        margin-top: 2rem
+        color: #ccc
+
+
+    &__overlay 
+        position: fixed
+        top: 0
+        left: 0
+        right: 0
+        bottom: 0
+        background: rgba(0, 0, 0, 0.5)
+        z-index: 999
 
 
 /* Slide transition animations */

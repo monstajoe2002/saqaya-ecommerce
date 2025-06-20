@@ -60,7 +60,8 @@ export default {
     &__sign-in 
         text-decoration: none;
         color: black;
-
+        @media screen and (max-width:768px) 
+            display: none;
     
 
     &__cart-btn 
@@ -72,7 +73,8 @@ export default {
     &__mobile-menu 
         font-size: 24px;
         padding-inline: 8px;
-    
+        @media screen and (min-width:768px) 
+            display: none;
 
     &__right 
         gap: 16px;
@@ -80,13 +82,12 @@ export default {
         align-items: center;
 
 
-@media screen and (max-width:768px) 
-    .navbar__sign-in 
-        display: none;
+
 
 @media screen and (min-width:768px) 
-    .navbar__mobile-menu 
-        display: none;
+    .navbar
+        &__mobile-menu 
+            display: none;
     
 
 </style>

@@ -21,9 +21,8 @@ export default {
 
 <style lang="sass" scoped>
 @media screen and (max-width:768px)
-
-    .navbar__search 
+.navbar
+    &__search 
         display: none
-    
 
 </style>

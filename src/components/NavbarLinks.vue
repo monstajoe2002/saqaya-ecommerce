@@ -7,21 +7,16 @@
 </template>
 
 <style lang="sass" scoped>
-.navbar__links 
-    display: flex
-    flex-direction: row
-    list-style: none
-    gap: 8px
-
-
-.navbar__link 
-    text-decoration: none
-    color: black
-
-
-@media screen and (max-width:768px) 
-    .navbar__links,
-    .navbar__link 
-        display: none
+.navbar
+    &__links 
+        display: flex
+        flex-direction: row
+        list-style: none
+        gap: 8px
+        @media screen and (max-width:768px) 
+            display: none
+    &__link 
+        text-decoration: none
+        color: black
 
 </style>
