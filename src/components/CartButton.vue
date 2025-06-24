@@ -27,6 +27,7 @@ export default {
     <button class="navbar__cart-btn" @click="toggleCart">
         <FontAwesomeIcon :icon="faCartShopping" />
     </button>
+    <!-- CartSheet component for the cart overlay, emit is also handled here -->
     <CartSheet :isOpen="isCartOpen" @toggle-cart="toggleCart" />
 </template>
 

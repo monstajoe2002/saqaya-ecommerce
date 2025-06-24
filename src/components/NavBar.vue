@@ -28,14 +28,14 @@ export default {
     <header>
         <nav class="navbar">
             <FontAwesomeIcon class="navbar__mobile-menu" :icon="faBars" />
-            <div class="navbar__left">
+            <div class="navbar__left"> <!-- this will be the logo and navigation links -->
                 <StoreLogo />
                 <NavbarLinks />
             </div>
             <div class="navbar__right">
-                <SearchInput />
+                <SearchInput /> <!-- this will be the search input-->
                 <a class="navbar__sign-in" href="#">Sign In</a>
-                <CartButton />
+                <CartButton /> <!-- this will be the cart button -->
             </div>
         </nav>
 

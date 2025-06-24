@@ -64,7 +64,7 @@ import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome';
         grid-template-columns: 1fr
     &__nav-grid 
         display: grid
-        grid-template-columns: repeat(3, 1fr)
+        grid-template-columns: repeat(3, 1fr) // 3 equal columns
         gap: 1rem
 
 

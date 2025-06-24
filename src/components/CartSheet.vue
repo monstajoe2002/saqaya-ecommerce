@@ -3,7 +3,7 @@
         <aside v-if="isOpen" class="cart">
             <div class="cart__header">
                 <h1 class="cart__title">Cart</h1>
-                <button class="cart__close" @click="toggleCart(false)">&times;</button>
+                <button class="cart__close" @click="toggleCart(false)">&times;</button> <!-- Close button -->
             </div>
             <hr class="cart__border" />
             <div class="cart__content">
@@ -12,6 +12,7 @@
             </div>
         </aside>
     </Transition>
+    <!-- Dark overlay when the cart sheet is open -->
     <div v-if="isOpen" class="cart__overlay" @click="toggleCart(false)"></div>
 </template>
 
@@ -27,7 +28,7 @@ export default {
     emits: ['toggle-cart'],
     methods: {
         toggleCart(isOpen: boolean) {
-            this.$emit('toggle-cart', isOpen)
+            this.$emit('toggle-cart', isOpen) // Emit the toggle event to the parent component CartButton
         }
     }
 }
