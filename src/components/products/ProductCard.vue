@@ -14,8 +14,10 @@ export default {
     <article class="product-card">
         <h3>{{ title }}</h3>
         <img :src="image" :alt="title" class="product-card__image" />
-        <p>{{ price }}</p>
-        <span class="product-card__category">{{ category }}</span>
+        <div class="product-cart__footer">
+            <p>{{ price }}</p>
+            <span class="product-card__category">{{ category }}</span>
+        </div>
     </article>
 </template>
 
@@ -40,4 +42,8 @@ export default {
         padding: 4px 8px
         border-radius: 1rem
         max-width: fit-content
+    &__footer
+        display: inline-block
+        
+
 </style>
