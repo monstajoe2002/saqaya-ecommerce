@@ -1,4 +1,5 @@
 <template>
+    <!-- TODO: add these links in the hamburger menu -->
     <ul class="navbar__links">
         <li><a href="/" class="navbar__link">Home</a></li>
         <li><a href="/products" class="navbar__link">Products</a></li>
