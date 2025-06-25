@@ -12,8 +12,8 @@ export default {
 
 <template>
     <article class="product-card">
-        <h1>{{ title }}</h1>
-        <img :src="image" :alt="title" />
+        <h3>{{ title }}</h3>
+        <img :src="image" :alt="title" class="product-card__image" />
         <p>{{ price }}</p>
         <span>{{ category }}</span>
     </article>
@@ -24,4 +24,8 @@ export default {
     border: solid #000 thin;
     border-radius: .75rem;
     padding: .5rem;
+    &__image
+        max-width: 200px;
+        max-height: 400px;
+        object-fit: cover;
 </style>
