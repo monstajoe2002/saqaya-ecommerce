@@ -1,4 +1,5 @@
 <script lang="ts">
+import { formatPrice } from '@/lib/utils'
 export default {
     name: 'ProductCard',
     props: {
@@ -15,10 +16,9 @@ export default {
                 price: this.price,
                 quantity: 1
             })
-        }
+        },
+        formatPrice
     }
-
-
 }
 </script>
 
@@ -26,7 +26,7 @@ export default {
     <article class="product-card">
         <h3>{{ title }}</h3>
         <img :src="image" :alt="title" class="product-card__image" />
-        <p>{{ price }}</p>
+        <p>{{ formatPrice(Number(price)) }}</p>
         <span class="product-card__category">{{ category }}</span>
         <button class="product-card__cart-btn" @click="addToCart">Add to cart</button>
     </article>

@@ -7,14 +7,16 @@
             </div>
             <hr class="cart__border" />
             <div class="cart__content">
+                <!-- Show fallback message if cart is empty -->
                 <p v-if="!cartItems.length" class="cart__empty-fallback">Your cart is empty. Add items here.</p>
                 <div v-else>
+                    <!-- Render cart items conditionally -->
                     <div v-for="cartItem in cartItems" :key="cartItem.title" class="cart__item">
                         <img :src="cartItem.image" :alt="cartItem.title" width="40" height="40" />
                         <div>
                             <span>{{ cartItem.title }}</span>
                             <span> x{{ cartItem.quantity }}</span>
-                            <span>\${{ cartItem.price }}</span>
+                            <span>\{{ formatPrice(cartItem.price) }}</span>
                         </div>
                     </div>
                 </div>
@@ -26,6 +28,7 @@
 </template>
 
 <script lang="ts">
+import { formatPrice } from '@/lib/utils';
 import type { CartItem } from '@/types/cart-item';
 
 export default {
@@ -40,7 +43,8 @@ export default {
     methods: {
         toggleCart(isOpen: boolean) {
             this.$emit('toggle-cart', isOpen) // Emit the toggle event to the parent component CartButton
-        }
+        },
+        formatPrice
     },
     computed: {
         cartItems() {
