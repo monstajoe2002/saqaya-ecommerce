@@ -7,10 +7,17 @@
             </div>
             <hr class="cart__border" />
             <div class="cart__content">
-                <p class="cart__empty-fallback">Your cart is empty. Add items here.</p>
-                <p v-show="cartItems.length" v-for="cartItem in cartItems" :key="cartItem.title">
-                    {{ cartItem.title }}
-                </p>
+                <p v-if="!cartItems.length" class="cart__empty-fallback">Your cart is empty. Add items here.</p>
+                <div v-else>
+                    <div v-for="cartItem in cartItems" :key="cartItem.title" class="cart__item">
+                        <img :src="cartItem.image" :alt="cartItem.title" width="40" height="40" />
+                        <div>
+                            <span>{{ cartItem.title }}</span>
+                            <span> x{{ cartItem.quantity }}</span>
+                            <span>\${{ cartItem.price }}</span>
+                        </div>
+                    </div>
+                </div>
             </div>
         </aside>
     </Transition>
@@ -90,6 +97,13 @@ export default {
         bottom: 0
         background: rgba(0, 0, 0, 0.5)
         z-index: 999
+    &__item
+        display: flex
+        background-color:#90bfdf
+        color: black
+        margin-bottom: 4px
+        padding: 12px
+        
 
 
 /* Slide transition animations */
