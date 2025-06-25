@@ -16,7 +16,7 @@ export default {
         <img :src="image" :alt="title" class="product-card__image" />
         <p>{{ price }}</p>
         <span class="product-card__category">{{ category }}</span>
-        <button>Add to cart</button>
+        <button class="product-card__cart-btn">Add to cart</button>
     </article>
 </template>
 
@@ -41,6 +41,12 @@ export default {
         padding: 4px 8px
         border-radius: 1rem
         max-width: fit-content
-        
+    &__cart-btn
+        margin-top: 4px
+        background-color: green
+        color: white
+        font-size: medium
+        padding: 8px
+        border-radius: 0.75rem
 
 </style>
