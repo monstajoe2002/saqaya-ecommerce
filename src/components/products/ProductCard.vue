@@ -24,6 +24,9 @@ export default {
     border: solid #000 thin
     border-radius: .75rem
     padding: .5rem
+    display: flex
+    flex-direction: column
+    justify-content: space-between
     &__image
         max-width: 200px
         max-height: 400px
@@ -36,4 +39,5 @@ export default {
         margin-top: 8px
         padding: 4px 8px
         border-radius: 1rem
+        max-width: fit-content
 </style>
