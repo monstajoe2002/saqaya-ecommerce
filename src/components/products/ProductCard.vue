@@ -17,6 +17,7 @@ export default {
         <div class="product-cart__footer">
             <p>{{ price }}</p>
             <span class="product-card__category">{{ category }}</span>
+            <button>Add to cart</button>
         </div>
     </article>
 </template>
