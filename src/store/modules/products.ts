@@ -1,5 +1,5 @@
 import type { Store } from 'vuex/types/index.js'
-import type { State } from '.'
+import type { State } from '..'
 import type { Product } from '@/types/product'
 
 export const productsModule = {

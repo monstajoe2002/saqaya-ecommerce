@@ -1,5 +1,5 @@
 import { createStore } from 'vuex'
-import { productsModule } from './products'
+import { productsModule } from './modules/products'
 import type { Product } from '@/types/product'
 export interface State {
   // cartItems: Array<CartItem>
