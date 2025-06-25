@@ -20,18 +20,18 @@ export const cartItemsModule = {
         price: product.price,
         quantity: 1,
       } satisfies CartItem
-      state.cartItems.push(newCartItem)
+      const cart = state.cartItems
+      const existingCartItem = cart.find((item) => item.title === newCartItem.title) as CartItem
+      if (!existingCartItem) {
+        state.cartItems.push(newCartItem)
+      }
+      existingCartItem.quantity += 1
+      existingCartItem.price += existingCartItem.price
     },
   },
   actions: {
     addToCart({ commit }: Store<State>, product: Product) {
-      const newCartItem = {
-        title: product.title,
-        image: product.image,
-        price: product.price,
-        quantity: 1,
-      } satisfies CartItem
-      commit('ADD_TO_CART', newCartItem)
+      commit('ADD_TO_CART', product)
     },
   },
 }
