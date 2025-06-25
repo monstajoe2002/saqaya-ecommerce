@@ -18,7 +18,7 @@
 
 <script lang="ts">
 export default {
-    name: 'CartSheet',
+    name: 'SideCart',
     props: {
         isOpen: {
             type: Boolean,

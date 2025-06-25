@@ -1,13 +1,13 @@
 <script lang="ts">
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome';
 import { faCartShopping } from '@fortawesome/free-solid-svg-icons';
-import CartSheet from './CartSheet.vue'; // Add this import
+import SideCart from './SideCart.vue'; // Add this import
 
 export default {
     name: 'CartButton',
     components: {
         FontAwesomeIcon,
-        CartSheet
+        SideCart
     },
     data() {
         return {
@@ -27,8 +27,8 @@ export default {
     <button class="navbar__cart-btn" @click="toggleCart">
         <FontAwesomeIcon :icon="faCartShopping" />
     </button>
-    <!-- CartSheet component for the cart overlay, emit is also handled here -->
-    <CartSheet :isOpen="isCartOpen" @toggle-cart="toggleCart" />
+    <!-- SideCart component for the cart overlay, emit is also handled here -->
+    <SideCart :isOpen="isCartOpen" @toggle-cart="toggleCart" />
 </template>
 
 <style lang="sass" scoped>
