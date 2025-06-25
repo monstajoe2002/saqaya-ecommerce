@@ -7,7 +7,12 @@ export const cartItemsModule = {
   state: () => ({
     cartItems: [],
   }),
-  mutation: {
+  getters: {
+    getCartItems: (state: State) => {
+      return state.cartItems
+    },
+  },
+  mutations: {
     ADD_TO_CART(state: State, product: Product) {
       const newCartItem = {
         title: product.title,

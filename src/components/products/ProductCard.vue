@@ -6,7 +6,19 @@ export default {
         image: String,
         price: Number,
         category: String
+    },
+    methods: {
+        addToCart() {
+            this.$store.dispatch("addToCart", {
+                title: this.title,
+                image: this.image,
+                price: this.price,
+                quantity: 1
+            })
+        }
     }
+
+
 }
 </script>
 
@@ -16,7 +28,7 @@ export default {
         <img :src="image" :alt="title" class="product-card__image" />
         <p>{{ price }}</p>
         <span class="product-card__category">{{ category }}</span>
-        <button class="product-card__cart-btn">Add to cart</button>
+        <button class="product-card__cart-btn" @click="addToCart">Add to cart</button>
     </article>
 </template>
 

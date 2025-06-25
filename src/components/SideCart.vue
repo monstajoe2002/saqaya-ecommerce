@@ -8,7 +8,9 @@
             <hr class="cart__border" />
             <div class="cart__content">
                 <p class="cart__empty-fallback">Your cart is empty. Add items here.</p>
-                <!-- Cart items will go here -->
+                <p v-show="cartItems.length" v-for="cartItem in cartItems" :key="cartItem.title">
+                    {{ cartItem.title }}
+                </p>
             </div>
         </aside>
     </Transition>
@@ -17,6 +19,8 @@
 </template>
 
 <script lang="ts">
+import type { CartItem } from '@/types/cart-item';
+
 export default {
     name: 'SideCart',
     props: {
@@ -30,7 +34,12 @@ export default {
         toggleCart(isOpen: boolean) {
             this.$emit('toggle-cart', isOpen) // Emit the toggle event to the parent component CartButton
         }
-    }
+    },
+    computed: {
+        cartItems() {
+            return this.$store.getters.getCartItems as CartItem[]
+        }
+    },
 }
 </script>
 
