@@ -15,6 +15,7 @@ export const cartItemsModule = {
   mutations: {
     ADD_TO_CART(state: State, product: Product) {
       const newCartItem = {
+        id: Date.now(),
         title: product.title,
         image: product.image,
         price: product.price,
@@ -30,7 +31,7 @@ export const cartItemsModule = {
     },
   },
   actions: {
-    addToCart({ commit }: Store<State>, product: Product) {
+    addToCart({ commit }: Store<State>, product: Omit<Product, 'id'>) {
       commit('ADD_TO_CART', product)
     },
   },
