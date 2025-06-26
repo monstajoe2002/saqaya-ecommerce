@@ -1,7 +1,11 @@
 <script lang="ts">
 import { formatPrice } from '@/lib/utils'
+import AddToCartButton from './AddToCartButton.vue'
 export default {
     name: 'ProductCard',
+    components: {
+        AddToCartButton
+    },
     props: {
         title: String,
         image: String,
@@ -28,7 +32,8 @@ export default {
         <img :src="image" :alt="title" class="product-card__image" />
         <p>{{ formatPrice(Number(price)) }}</p>
         <span class="product-card__category">{{ category }}</span>
-        <button class="product-card__cart-btn" @click="addToCart">Add to cart</button>
+        <!-- the add action will be passed here to avoid prop drilling with product info-->
+        <AddToCartButton :addToCart="addToCart" />
     </article>
 </template>
 
@@ -53,12 +58,5 @@ export default {
         padding: 4px 8px
         border-radius: 1rem
         max-width: fit-content
-    &__cart-btn
-        margin-top: 4px
-        background-color: green
-        color: white
-        font-size: medium
-        padding: 8px
-        border-radius: 0.75rem
 
 </style>
