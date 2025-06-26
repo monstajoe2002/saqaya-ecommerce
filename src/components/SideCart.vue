@@ -21,8 +21,10 @@
                     </div>
                 </div>
             </div>
-            <div class="cart__footer">
+            <!-- Only show the count if cart has items -->
+            <div class="cart__footer" v-show="cartItems.length">
                 <p>Total Price: {{ formatPrice(totalPrice) }}</p>
+                <p>Quantity: {{ totalQuantity }}</p>
             </div>
         </aside>
     </Transition>
@@ -55,6 +57,9 @@ export default {
         },
         totalPrice() {
             return this.$store.getters.getCartTotalPrice
+        },
+        totalQuantity() {
+            return this.$store.getters.getCartTotalQuantity
         },
 
     },
