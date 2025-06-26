@@ -21,6 +21,9 @@
                     </div>
                 </div>
             </div>
+            <div class="cart__footer">
+                <p>Total Price: {{ formatPrice(totalPrice) }}</p>
+            </div>
         </aside>
     </Transition>
     <!-- Dark overlay when the cart sheet is open -->
@@ -49,7 +52,11 @@ export default {
     computed: {
         cartItems() {
             return this.$store.getters.getCartItems as CartItem[]
-        }
+        },
+        totalPrice() {
+            return this.$store.getters.getCartTotalPrice
+        },
+
     },
 }
 </script>
