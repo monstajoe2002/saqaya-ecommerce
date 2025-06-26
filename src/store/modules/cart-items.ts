@@ -12,6 +12,8 @@ export const cartItemsModule = {
       return state.cartItems
     },
     getCartTotalPrice: (state: State) => state.cartItems.reduce((acc, item) => acc + item.price, 0),
+    getCartTotalQuantity: (state: State) =>
+      state.cartItems.reduce((acc, item) => acc + item.quantity, 0),
   },
   mutations: {
     ADD_TO_CART(state: State, product: Product) {
