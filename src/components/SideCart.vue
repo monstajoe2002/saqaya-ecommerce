@@ -17,6 +17,9 @@
                             <span>{{ cartItem.title }}</span>
                             <span> x{{ cartItem.quantity }}</span>
                             <span>\{{ formatPrice(cartItem.price) }}</span>
+                            <div>
+                                <button class="cart__remove-btn" @click="removeFromCart(cartItem)">Remove</button>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -48,6 +51,9 @@ export default {
     methods: {
         toggleCart(isOpen: boolean) {
             this.$emit('toggle-cart', isOpen) // Emit the toggle event to the parent component CartButton
+        },
+        removeFromCart(cartItem: CartItem) {
+            this.$store.dispatch("removeFromCart", cartItem)
         },
         formatPrice
     },
@@ -119,6 +125,14 @@ export default {
         color: black
         margin-bottom: 4px
         padding: 12px
+    &__remove-btn
+        background-color: red
+        padding: 4px 8px
+        border-radius: 8px
+        color: white
+        cursor: pointer
+        &:hover
+            background-color:#c00
         
 
 

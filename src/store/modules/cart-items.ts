@@ -32,10 +32,19 @@ export const cartItemsModule = {
       existingCartItem.quantity += 1
       existingCartItem.price += existingCartItem.price
     },
+    REMOVE_FROM_CART(state: State, cartItem: CartItem) {
+      const cart = state.cartItems
+      const existingItem = cart.find((item) => item.id === cartItem.id) as CartItem
+      const existingItemIdx = cart.indexOf(existingItem)
+      state.cartItems.splice(existingItemIdx, 1)
+    },
   },
   actions: {
     addToCart({ commit }: Store<State>, product: Omit<Product, 'id'>) {
       commit('ADD_TO_CART', product)
+    },
+    removeFromCart({ commit }: Store<State>, cartItem: CartItem) {
+      commit('REMOVE_FROM_CART', cartItem)
     },
   },
 }
