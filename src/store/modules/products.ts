@@ -10,11 +10,6 @@ export const productsModule = {
     getProducts(state: State) {
       return state.products
     },
-    sortProducts(state: State, option: 'price' | 'category') {
-      return option === 'price'
-        ? state.products.sort((a, b) => a.price - b.price)
-        : state.products.sort()
-    },
   },
   actions: {
     fetchProducts({ commit }: Store<State>) {
@@ -32,6 +27,16 @@ export const productsModule = {
   mutations: {
     setProductData(state: State, products: Product[]) {
       state.products = products
+    },
+    sortProducts(state: State, option: 'price' | 'category') {
+      if (option === 'price') {
+        state.products.sort((a, b) => b.price - a.price)
+      }
+      state.products.sort((a, b) => {
+        if (a.category < b.category) return -1
+        if (a.category > b.category) return 1
+        return 0
+      })
     },
   },
 }

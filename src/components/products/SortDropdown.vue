@@ -7,9 +7,10 @@ export default {
         };
     },
     methods: {
-        logSelectedOption() {
-            console.log('Selected Option:', this.selectedOption);
-        },
+        sortProducts() {
+            this.$store.commit('sortProducts', this.selectedOption)
+            console.log(this.selectedOption)
+        }
     },
 }
 </script>
@@ -19,7 +20,7 @@ export default {
             <span>Sort by</span>
         </label>
 
-        <select v-model="selectedOption" id="sort" @change="logSelectedOption">
+        <select v-model="selectedOption" id="sort" @change="sortProducts">
             <option value="price">Price</option>
             <option value="category">Category</option>
         </select>
