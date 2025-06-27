@@ -45,7 +45,7 @@ export default {
     display: flex
     flex-direction: column
     justify-content: space-between
-    // shrink the image down to 200px and fit it within card boundary
+    // shrink the image down to 150px and fit it within card boundary
     &__image
         max-height: 150px
         object-fit: contain

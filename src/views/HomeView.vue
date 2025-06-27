@@ -1,11 +1,13 @@
 <script lang="ts">
 import ProductCard from '@/components/products/ProductCard.vue';
+import SortDropdown from '@/components/products/SortDropdown.vue';
 import type { Product } from '@/types/product';
 
 export default {
   name: 'HomeView',
   components: {
-    ProductCard
+    ProductCard,
+    SortDropdown
   },
   computed: {
     products() {
@@ -19,9 +21,12 @@ export default {
 </script>
 
 <template>
-  <div class="product-grid">
-    <ProductCard v-for="product in products" :key="product.id" :title="product.title" :image="product.image"
-      :category="product.category" :price="product.price" />
+  <div>
+    <SortDropdown />
+    <div class="product-grid">
+      <ProductCard v-for="product in products" :key="product.id" :title="product.title" :image="product.image"
+        :category="product.category" :price="product.price" />
+    </div>
   </div>
 </template>
 
