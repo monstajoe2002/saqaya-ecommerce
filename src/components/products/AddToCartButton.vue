@@ -24,5 +24,8 @@ export default {
         color: white
         font-size: medium
         padding: 8px
-        border-radius: 0.75rem    
+        border-radius: 0.75rem
+        &:hover
+            background-color: #060
+            cursor: pointer    
 </style>
