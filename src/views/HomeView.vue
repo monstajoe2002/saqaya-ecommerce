@@ -28,7 +28,9 @@ export default {
 <style scoped lang="sass">
 .product-grid
   display: grid
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr))
+  width: 100%
+  margin: 0 auto
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr))
   gap: 16px
   padding: 1.25rem
   @media screen and (max-width: 1024px)

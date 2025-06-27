@@ -47,7 +47,7 @@ export default {
     justify-content: space-between
     // shrink the image down to 200px and fit it within card boundary
     &__image
-        max-height: 200px 
+        max-height: 150px
         object-fit: contain
     &__category
         font-weight: 500
