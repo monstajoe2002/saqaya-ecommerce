@@ -27,5 +27,7 @@ export default {
         border-radius: 0.75rem
         &:hover
             background-color: #060
-            cursor: pointer    
+            cursor: pointer
+        &:active
+            background-color: #050     
 </style>
