@@ -10,6 +10,11 @@ export const productsModule = {
     getProducts(state: State) {
       return state.products
     },
+    sortProducts(state: State, option: 'price' | 'category') {
+      return option === 'price'
+        ? state.products.sort((a, b) => a.price - b.price)
+        : state.products.sort()
+    },
   },
   actions: {
     fetchProducts({ commit }: Store<State>) {
