@@ -1,6 +1,16 @@
 <script lang="ts">
 export default {
     name: 'SortDropdown',
+    data() {
+        return {
+            selectedOption: null,
+        };
+    },
+    methods: {
+        logSelectedOption() {
+            console.log('Selected Option:', this.selectedOption);
+        },
+    },
 }
 </script>
 <template>
@@ -9,7 +19,7 @@ export default {
             <span>Sort by</span>
         </label>
 
-        <select id="cars">
+        <select v-model="selectedOption" id="sort" @change="logSelectedOption">
             <option value="price">Price</option>
             <option value="category">Category</option>
         </select>
