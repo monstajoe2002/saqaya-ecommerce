@@ -1,12 +1,15 @@
 <script lang="ts">
 import { formatPrice } from '@/lib/utils'
 import AddToCartButton from './AddToCartButton.vue'
+import { RouterLink } from 'vue-router';
 export default {
     name: 'ProductCard',
     components: {
-        AddToCartButton
+        AddToCartButton,
+        RouterLink
     },
     props: {
+        id: Number,
         title: String,
         image: String,
         price: Number,
@@ -28,7 +31,9 @@ export default {
 
 <template>
     <article class="product-card">
-        <h3>{{ title }}</h3>
+        <RouterLink :to="`/products/${id}`">
+            <h3>{{ title }}</h3>
+        </RouterLink>
         <img :src="image" :alt="title" class="product-card__image" />
         <p>{{ formatPrice(Number(price)) }}</p>
         <span class="product-card__category">{{ category }}</span>
