@@ -24,8 +24,8 @@ export default {
   <div>
     <SortDropdown />
     <div class="product-grid">
-      <ProductCard v-for="product in products" :key="product.id" :title="product.title" :image="product.image"
-        :category="product.category" :price="product.price" />
+      <ProductCard v-for="product in products" :key="product.id" :id="product.id" :title="product.title"
+        :image="product.image" :category="product.category" :price="product.price" />
     </div>
   </div>
 </template>
