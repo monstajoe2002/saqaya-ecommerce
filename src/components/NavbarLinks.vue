@@ -1,6 +1,6 @@
 <template>
     <div class="navbar-links">
-        <ul class="navbar__links" :class="{ 'navbar__links--open': isMenuOpen }">
+        <ul class="navbar__links" :class="{ 'navbar__links-open': isMenuOpen }">
             <li><a href="/" class="navbar__link" @click="toggleMenuOnMobile">Home</a></li>
             <li><a href="/products" class="navbar__link" @click="toggleMenuOnMobile">Products</a></li>
             <li><a href="/contact" class="navbar__link" @click="toggleMenuOnMobile">Contact Us</a></li>
@@ -49,7 +49,7 @@ export default {
         box-shadow: 0 2px 8px rgba(0,0,0,0.1)
         z-index: 2
 
-.navbar__links--open
+.navbar__links-open
     @media screen and (max-width:768px)
         display: flex
         justify-self: flex-start
