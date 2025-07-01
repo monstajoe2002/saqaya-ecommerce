@@ -11,17 +11,7 @@
                 <p v-if="!cartItems.length" class="cart__empty-fallback">Your cart is empty. Add items here.</p>
                 <div v-else>
                     <!-- Render cart items conditionally -->
-                    <div v-for="cartItem in cartItems" :key="cartItem.title" class="cart__item">
-                        <img :src="cartItem.image" :alt="cartItem.title" width="40" height="40" />
-                        <div>
-                            <span>{{ cartItem.title }}</span>
-                            <span> x{{ cartItem.quantity }}</span>
-                            <span>\{{ formatPrice(cartItem.price) }}</span>
-                            <div>
-                                <button class="cart__remove-btn" @click="removeFromCart(cartItem)">Remove</button>
-                            </div>
-                        </div>
-                    </div>
+                    <CartItemComponent v-for="cartItem in cartItems" :key="cartItem.title" :cart-item="cartItem" />
                 </div>
             </div>
             <!-- Only show the count if cart has items -->
@@ -38,37 +28,38 @@
 <script lang="ts">
 import { formatPrice } from '@/lib/utils';
 import type { CartItem } from '@/types/cart-item';
+import CartItemComponent from './CartItem.vue'
 
 export default {
-    name: 'SideCart',
+    name: "SideCart",
     props: {
         isOpen: {
             type: Boolean,
             default: false
         }
     },
-    emits: ['toggle-cart'],
+    emits: ["toggle-cart"],
     methods: {
         toggleCart(isOpen: boolean) {
-            this.$emit('toggle-cart', isOpen) // Emit the toggle event to the parent component CartButton
+            this.$emit("toggle-cart", isOpen); // Emit the toggle event to the parent component CartButton
         },
         removeFromCart(cartItem: CartItem) {
-            this.$store.dispatch("removeFromCart", cartItem)
+            this.$store.dispatch("removeFromCart", cartItem);
         },
         formatPrice
     },
     computed: {
         cartItems() {
-            return this.$store.getters.getCartItems as CartItem[]
+            return this.$store.getters.getCartItems as CartItem[];
         },
         totalPrice() {
-            return this.$store.getters.getCartTotalPrice
+            return this.$store.getters.getCartTotalPrice;
         },
         totalQuantity() {
-            return this.$store.getters.getCartTotalQuantity
+            return this.$store.getters.getCartTotalQuantity;
         },
-
     },
+    components: { CartItemComponent }
 }
 </script>
 
