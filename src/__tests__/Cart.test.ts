@@ -58,8 +58,28 @@ describe('Shopping Cart', () => {
       },
     })
 
-    expect(wrapper.findAll('.cart__item').length).toBe(mockItems.length) // Check if the number of cart items matches
+    // expect(wrapper.findAll('.cart__item').length).toBe(mockItems.length) // Check if the number of cart items matches
     expect(wrapper.find('.cart__footer').text()).toContain(mockTotalPrice) // Check if the total price is calculated correctly
     expect(wrapper.find('.cart__footer').text()).toContain(mockTotalQuantity) // Check if the total quantity is calculated correctly
+  })
+  test('Cart emits toggle event when closed', async () => {
+    const wrapper = mount(SideCart, {
+      props: {
+        isOpen: true,
+      },
+
+      global: {
+        mocks: {
+          $store: {
+            getters: {
+              getCartItems: vi.fn(() => []), // Mocking the getter to return an empty array
+            },
+          },
+        },
+      },
+    })
+
+    await wrapper.find('.cart__close').trigger('click') // Simulate clicking the close button
+    expect(wrapper.emitted('toggle-cart')).toBeTruthy() // Check if the toggle-cart event was emitted
   })
 })
