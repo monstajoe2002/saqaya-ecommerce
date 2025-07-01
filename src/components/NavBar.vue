@@ -18,19 +18,25 @@ export default {
         return {
             faBars,
             faMagnifyingGlass,
+            isMenuOpen: false
         };
     },
-
+    methods: {
+        toggleMenu() {
+            this.isMenuOpen = !this.isMenuOpen;
+        }
+    }
 };
 </script>
 
 <template>
     <header>
         <nav class="navbar">
-            <FontAwesomeIcon class="navbar__mobile-menu" :icon="faBars" />
+            <FontAwesomeIcon class="navbar__mobile-menu" :icon="faBars" @click="toggleMenu"
+                aria-label="Toggle navigation" />
             <div class="navbar__left"> <!-- this will be the logo and navigation links -->
                 <StoreLogo />
-                <NavbarLinks />
+                <NavbarLinks :isMenuOpen="isMenuOpen" :toggleMenu="toggleMenu" />
             </div>
             <div class="navbar__right">
                 <SearchInput /> <!-- this will be the search input-->
