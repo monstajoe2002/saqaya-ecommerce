@@ -1,6 +1,6 @@
 import { mount } from '@vue/test-utils'
 import { describe, expect, test, vi } from 'vitest'
-import SideCart from '../components/SideCart.vue'
+import SideCart from '../components/cart/SideCart.vue'
 
 describe('Shopping Cart', () => {
   test('Cart is empty initially', () => {

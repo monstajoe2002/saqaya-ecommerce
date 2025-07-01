@@ -28,7 +28,7 @@
 <script lang="ts">
 import { formatPrice } from '@/lib/utils';
 import type { CartItem } from '@/types/cart-item';
-import CartItemComponent from './CartItem.vue'
+import CartItemComponent from './CartItem.vue';
 
 export default {
     name: "SideCart",
