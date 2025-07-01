@@ -3,6 +3,7 @@ import { describe, expect, test } from 'vitest'
 import ProductCard from '../components/products/ProductCard.vue'
 describe('product card', () => {
   test('Displays card', () => {
+    // mount the ProductCard component with props
     const wrapper = mount(ProductCard, {
       props: {
         id: 1,
@@ -13,10 +14,10 @@ describe('product card', () => {
       },
       global: {
         stubs: {
-          RouterLink: true,
+          RouterLink: true, // Stub RouterLink globally
         },
       },
     })
-    expect(wrapper).toBeTruthy()
+    expect(wrapper).toBeTruthy() // Check if the component is mounted successfully
   })
 })
