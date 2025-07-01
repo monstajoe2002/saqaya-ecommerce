@@ -31,12 +31,9 @@ export const productsModule = {
     sortProducts(state: State, option: 'price' | 'category') {
       if (option === 'price') {
         state.products.sort((a, b) => b.price - a.price)
+      } else if (option === 'category') {
+        state.products.sort((a, b) => a.category.localeCompare(b.category))
       }
-      state.products.sort((a, b) => {
-        if (a.category < b.category) return -1
-        if (a.category > b.category) return 1
-        return 0
-      })
     },
   },
 }

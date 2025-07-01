@@ -3,7 +3,7 @@ import { faBars, faMagnifyingGlass } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome';
 import StoreLogo from './StoreLogo.vue';
 import NavbarLinks from './NavbarLinks.vue'
-import CartButton from './CartButton.vue'
+import CartButton from './cart/CartButton.vue'
 import SearchInput from './SearchInput.vue'
 export default {
     name: 'NavBar',
