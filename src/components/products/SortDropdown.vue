@@ -1,17 +1,11 @@
-<script lang="ts">
-export default {
-    name: 'SortDropdown',
-    data() {
-        return {
-            selectedOption: null,
-        };
-    },
-    methods: {
-        sortProducts() {
-            this.$store.commit('sortProducts', this.selectedOption)
-            console.log(this.selectedOption)
-        }
-    },
+<script setup lang="ts">
+import { store } from '@/store';
+import { ref } from 'vue';
+
+const selectedOption = ref(null);
+
+function sortProducts() {
+    store.commit('sortProducts', selectedOption.value);
 }
 </script>
 <template>

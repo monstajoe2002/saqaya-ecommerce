@@ -1,15 +1,12 @@
-<script lang="ts">
+<script setup lang="ts">
 import type { PropType } from 'vue';
 
-export default {
-    name: 'AddToCartButton',
-    props: {
-        addToCart: {
-            type: Function as PropType<() => void>,
-            required: true
-        }
+defineProps({
+    addToCart: {
+        type: Function as PropType<() => void>,
+        required: true
     }
-}
+});
 </script>
 
 <template>

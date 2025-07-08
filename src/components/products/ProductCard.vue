@@ -1,31 +1,23 @@
-<script lang="ts">
+<script setup lang="ts">
 import { formatPrice } from '@/lib/utils'
 import AddToCartButton from './AddToCartButton.vue'
 import { RouterLink } from 'vue-router';
-export default {
-    name: 'ProductCard',
-    components: {
-        AddToCartButton,
-        RouterLink
-    },
-    props: {
-        id: Number,
-        title: String,
-        image: String,
-        price: Number,
-        category: String
-    },
-    methods: {
-        addToCart() {
-            this.$store.dispatch("addToCart", {
-                title: this.title,
-                image: this.image,
-                price: this.price,
-                quantity: 1
-            })
-        },
-        formatPrice
-    }
+import { store } from '@/store';
+
+const props = defineProps({
+    id: Number,
+    title: String,
+    image: String,
+    price: Number,
+    category: String
+});
+function addToCart() {
+    store.dispatch("addToCart", {
+        title: props.title,
+        image: props.image,
+        price: props.price,
+        quantity: 1
+    })
 }
 </script>
 
