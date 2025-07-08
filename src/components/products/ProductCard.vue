@@ -2,8 +2,8 @@
 import { formatPrice } from '@/lib/utils'
 import AddToCartButton from './AddToCartButton.vue'
 import { RouterLink } from 'vue-router';
-import { store } from '@/store';
-
+import { useCartItems } from '@/store/cart-items';
+const cartItemsStore = useCartItems(); // Access the cart items store
 const props = defineProps({
     id: Number,
     title: String,
@@ -12,12 +12,11 @@ const props = defineProps({
     category: String
 });
 function addToCart() {
-    store.dispatch("addToCart", {
+    cartItemsStore.addToCart({
         title: props.title,
         image: props.image,
         price: props.price,
-        quantity: 1
-    })
+    });
 }
 </script>
 

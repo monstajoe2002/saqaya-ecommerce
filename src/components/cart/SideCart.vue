@@ -29,8 +29,9 @@
 import { formatPrice } from '@/lib/utils';
 import type { CartItem } from '@/types/cart-item';
 import CartItemComponent from './CartItem.vue';
-import { store } from '@/store';
 import { computed } from 'vue';
+import { useCartItems } from '@/store/cart-items';
+const cartItemsStore = useCartItems(); // Access the cart items store
 defineProps({
     isOpen: {
         type: Boolean,
@@ -41,9 +42,9 @@ const emit = defineEmits(['toggle-cart']);
 function toggleCart(isOpen: boolean) {
     emit("toggle-cart", isOpen); // Emit the toggle event to the parent component CartButton
 }
-const cartItems = computed(() => store.getters.getCartItems as CartItem[]);
-const totalPrice = computed(() => store.getters.getCartTotalPrice);
-const totalQuantity = computed(() => store.getters.getCartTotalQuantity);
+const cartItems = computed(() => cartItemsStore.getCartItems as CartItem[]);
+const totalPrice = computed(() => cartItemsStore.getCartTotalPrice);
+const totalQuantity = computed(() => cartItemsStore.getCartTotalQuantity);
 </script>
 
 <style lang="sass" scoped>

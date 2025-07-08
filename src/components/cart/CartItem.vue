@@ -15,7 +15,8 @@
 <script setup lang="ts">
 import type { CartItem } from '@/types/cart-item';
 import { formatPrice } from '@/lib/utils';
-import { store } from '@/store';
+import { useCartItems } from '@/store/cart-items';
+const cartItemsStore = useCartItems(); // Access the cart items store
 defineProps({
     cartItem: {
         type: Object as () => CartItem,
@@ -23,7 +24,7 @@ defineProps({
     }
 })
 function removeFromCart(cartItem: CartItem) {
-    store.dispatch("removeFromCart", cartItem);
+    cartItemsStore.removeFromCart(cartItem);
 }
 
 </script>
