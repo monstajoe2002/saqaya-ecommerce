@@ -1,5 +1,6 @@
 import { mount } from '@vue/test-utils'
 import { describe, expect, test } from 'vitest'
+import { createTestingPinia } from '@pinia/testing'
 import ProductCard from '../components/products/ProductCard.vue'
 describe('product card', () => {
   test('Displays card', () => {
@@ -16,6 +17,7 @@ describe('product card', () => {
         stubs: {
           RouterLink: true, // Stub RouterLink globally
         },
+        plugins: [createTestingPinia()],
       },
     })
     expect(wrapper).toBeTruthy() // Check if the component is mounted successfully
