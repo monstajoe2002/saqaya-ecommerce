@@ -8,28 +8,26 @@
     </div>
 </template>
 
-<script lang="ts">
-export default {
-    name: "NavbarLinks",
-    props: {
-        isMenuOpen: {
-            type: Boolean,
-            required: true
-        },
-        toggleMenu: {
-            type: Function,
-            required: true
-        }
+<script setup lang="ts">
+import { defineProps } from 'vue';
+
+const props = defineProps({
+    isMenuOpen: {
+        type: Boolean,
+        required: true
     },
-    methods: {
-        toggleMenuOnMobile() {
-            // Optionally close menu after clicking a link on mobile
-            if (window.innerWidth <= 768) {
-                this.toggleMenu();
-            }
-        }
+    toggleMenu: {
+        type: Function,
+        required: true
+    }
+})
+function toggleMenuOnMobile() {
+    // Optionally close menu after clicking a link on mobile
+    if (window.innerWidth <= 768) {
+        props.toggleMenu();
     }
 }
+
 </script>
 
 <style lang="sass" scoped>

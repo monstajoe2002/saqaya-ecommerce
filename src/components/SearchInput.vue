@@ -1,18 +1,6 @@
-<script lang="ts">
+<script setup lang="ts">
 import { faMagnifyingGlass } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome';
-
-export default {
-    name: 'SearchInput',
-    components: {
-        FontAwesomeIcon
-    },
-    data() {
-        return {
-            faMagnifyingGlass
-        }
-    }
-}
 </script>
 
 <template>
