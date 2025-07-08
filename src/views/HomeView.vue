@@ -23,9 +23,12 @@ export default {
 <template>
   <div>
     <SortDropdown />
-    <div class="product-grid">
+    <div v-if="products.length" class="product-grid">
       <ProductCard v-for="product in products" :key="product.id" :id="product.id" :title="product.title"
         :image="product.image" :category="product.category" :price="product.price" />
+    </div>
+    <div v-else>
+      <h1 class="error-message">Failed to load products.</h1>
     </div>
   </div>
 </template>
@@ -43,4 +46,6 @@ export default {
 
   @media screen and (max-width: 600px)
     grid-template-columns: 1fr
+.error-message
+  color: red
 </style>

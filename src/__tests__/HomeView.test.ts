@@ -42,5 +42,25 @@ describe('home page', () => {
     expect(wrapper.find('.product-card__image').attributes('src')).toBe(
       'https://picsum.photos/200/300',
     ) // Check if the first product image is displayed correctly
-  }) // Check if the first product price is displayed correctly
+  })
+  test('Display error message when failed to fetch products', () => {
+    const wrapper = mount(HomeView, {
+      global: {
+        stubs: {
+          RouterLink: true,
+        },
+        mocks: {
+          $store: {
+            getters: {
+              getProducts: [],
+            },
+            dispatch: vi.fn(),
+          },
+        },
+      },
+    })
+    expect(wrapper).toBeTruthy() // Check if the component is mounted successfully
+    expect(wrapper.find('.error-message').exists()).toBe(true) // Check if the error message is displayed
+    expect(wrapper.find('.error-message').text()).toContain('Failed to load products') // Check if the error message text is correct
+  })
 })
