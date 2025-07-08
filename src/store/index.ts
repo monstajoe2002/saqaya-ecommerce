@@ -1,9 +1,9 @@
 import { createStore } from 'vuex'
-import { productsModule } from './modules/products'
+import { useProductsStore } from './products'
 import type { Product } from '@/types/product'
 import type { CartItem } from '@/types/cart-item'
-import { cartItemsModule } from './modules/cart-items'
-import { selectedProductModule } from './modules/selected-product'
+import { cartItemsModule } from './cart-items'
+import { selectedProductModule } from './selected-product'
 export interface State {
   cartItems: Array<CartItem>
   products: Array<Product>
@@ -11,7 +11,7 @@ export interface State {
 }
 export const store = createStore({
   modules: {
-    products: productsModule,
+    products: useProductsStore,
     cartItems: cartItemsModule,
     selectedProduct: selectedProductModule,
   },

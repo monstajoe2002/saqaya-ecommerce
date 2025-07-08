@@ -1,14 +1,13 @@
 <script setup lang="ts">
 import ProductCard from '@/components/products/ProductCard.vue';
 import SortDropdown from '@/components/products/SortDropdown.vue';
-import { store } from '@/store';
-import type { Product } from '@/types/product';
+import { useProductsStore } from '@/store/products';
 import { computed, onMounted } from 'vue';
-
+const productsStore = useProductsStore()
 const products = computed(() => {
-  return store.getters.getProducts as Product[]
+  return productsStore.getProducts;
 })
-onMounted(() => store.dispatch("fetchProducts"))
+onMounted(() => productsStore.fetchProducts(productsStore.$state))
 </script>
 
 <template>

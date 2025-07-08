@@ -1,9 +1,10 @@
-import type { Store } from 'vuex/types/index.js'
-import type { State } from '..'
 import type { Product } from '@/types/product'
-
-export const productsModule = {
-  state: () => ({
+import { defineStore } from 'pinia'
+interface State {
+  products: Array<Product>
+}
+export const useProductsStore = defineStore('products', {
+  state: (): State => ({
     products: [],
   }),
   getters: {
@@ -12,21 +13,14 @@ export const productsModule = {
     },
   },
   actions: {
-    fetchProducts({ commit }: Store<State>) {
+    async fetchProducts(state: State) {
       const baseURL = 'https://fakestoreapi.com/products'
-      fetch(baseURL)
-        .then((res) => res.json())
-        .then((response) => {
-          commit('setProductData', response)
-        })
-        .catch((e) => {
-          console.log(e)
-        })
+      const response = await fetch(baseURL)
+      const data = await response.json()
+      this.setProductData(state, data)
     },
-  },
-  mutations: {
-    setProductData(state: State, products: Product[]) {
-      state.products = products
+    setProductData(state: State, payload: Array<Product>) {
+      state.products = payload
     },
     sortProducts(state: State, option: 'price' | 'category') {
       if (option === 'price') {
@@ -36,4 +30,4 @@ export const productsModule = {
       }
     },
   },
-}
+})

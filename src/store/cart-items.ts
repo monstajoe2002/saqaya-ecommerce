@@ -1,5 +1,5 @@
 import type { Product } from '@/types/product'
-import type { State } from '..'
+import type { State } from '.'
 import type { Store } from 'vuex/types/index.js'
 import type { CartItem } from '@/types/cart-item'
 
