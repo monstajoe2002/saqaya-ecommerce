@@ -22,7 +22,7 @@ export const useProductsStore = defineStore('products', {
     setProductData(state: State, payload: Array<Product>) {
       state.products = payload
     },
-    sortProducts(state: State, option: 'price' | 'category') {
+    sortProducts(state: State, option: 'price' | 'category' | null) {
       if (option === 'price') {
         state.products.sort((a, b) => b.price - a.price)
       } else if (option === 'category') {

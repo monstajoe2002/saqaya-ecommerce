@@ -1,11 +1,11 @@
 <script setup lang="ts">
-import { store } from '@/store';
+import { useProductsStore } from '@/store/products';
 import { ref } from 'vue';
 
 const selectedOption = ref(null);
-
+const productsStore = useProductsStore();
 function sortProducts() {
-    store.commit('sortProducts', selectedOption.value);
+    productsStore.sortProducts(productsStore.$state, selectedOption.value);
 }
 </script>
 <template>
