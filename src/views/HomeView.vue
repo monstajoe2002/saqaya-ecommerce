@@ -1,23 +1,14 @@
-<script lang="ts">
+<script setup lang="ts">
 import ProductCard from '@/components/products/ProductCard.vue';
 import SortDropdown from '@/components/products/SortDropdown.vue';
+import { store } from '@/store';
 import type { Product } from '@/types/product';
+import { computed, onMounted } from 'vue';
 
-export default {
-  name: 'HomeView',
-  components: {
-    ProductCard,
-    SortDropdown
-  },
-  computed: {
-    products() {
-      return this.$store.getters.getProducts as Product[]
-    }
-  },
-  mounted() {
-    this.$store.dispatch("fetchProducts");
-  }
-}
+const products = computed(() => {
+  return store.getters.getProducts as Product[]
+})
+onMounted(() => store.dispatch("fetchProducts"))
 </script>
 
 <template>

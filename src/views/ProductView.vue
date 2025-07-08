@@ -1,30 +1,27 @@
-<script lang="ts">
+<script setup lang="ts">
 import { formatPrice } from '@/lib/utils';
+import { store } from '@/store';
 import type { Product } from '@/types/product';
+import { computed, onMounted } from 'vue';
+import { useRoute } from 'vue-router';
+const route = useRoute();
+const product = computed(() => {
+    return store.getters.getProduct as Product | null;
+});
 
-export default {
-    name: 'ProductView',
-    computed: {
-        product() {
-            return this.$store.getters.getProduct as Product | null;
-        }
-    },
-    mounted() {
-        const id = Number(this.$route.params.id);
-        this.$store.dispatch("fetchProduct", id);
-    },
-    methods: {
-        formatPrice
-    }
-}
+onMounted(() => {
+    const id = Number(route.params.id);
+    store.dispatch("fetchProduct", id);
+});
 </script>
+
 
 <template>
     <div class="product-view">
         <h1 class="product-view__title">{{ product?.title }}</h1>
         <img class="product-view__image" :src="product?.image" alt="Product Image" />
         <p class="product-view__category">Category: <span class="product-view__category-label">{{ product?.category
-        }}</span></p>
+                }}</span></p>
         <p class="product-view__price">Price: <span class="product-view__price-value">{{
             formatPrice(Number(product?.price)) }}</span></p>
         <p class="product-view__description">{{ product?.description }}</p>
