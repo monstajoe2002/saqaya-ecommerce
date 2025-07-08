@@ -25,42 +25,25 @@
     <div v-if="isOpen" class="cart__overlay" @click="toggleCart(false)"></div>
 </template>
 
-<script lang="ts">
+<script setup lang="ts">
 import { formatPrice } from '@/lib/utils';
 import type { CartItem } from '@/types/cart-item';
 import CartItemComponent from './CartItem.vue';
-
-export default {
-    name: "SideCart",
-    props: {
-        isOpen: {
-            type: Boolean,
-            default: false
-        }
-    },
-    emits: ["toggle-cart"],
-    methods: {
-        toggleCart(isOpen: boolean) {
-            this.$emit("toggle-cart", isOpen); // Emit the toggle event to the parent component CartButton
-        },
-        removeFromCart(cartItem: CartItem) {
-            this.$store.dispatch("removeFromCart", cartItem);
-        },
-        formatPrice
-    },
-    computed: {
-        cartItems() {
-            return this.$store.getters.getCartItems as CartItem[];
-        },
-        totalPrice() {
-            return this.$store.getters.getCartTotalPrice;
-        },
-        totalQuantity() {
-            return this.$store.getters.getCartTotalQuantity;
-        },
-    },
-    components: { CartItemComponent }
+import { store } from '@/store';
+import { computed } from 'vue';
+defineProps({
+    isOpen: {
+        type: Boolean,
+        default: false
+    }
+});
+const emit = defineEmits(['toggle-cart']);
+function toggleCart(isOpen: boolean) {
+    emit("toggle-cart", isOpen); // Emit the toggle event to the parent component CartButton
 }
+const cartItems = computed(() => store.getters.getCartItems as CartItem[]);
+const totalPrice = computed(() => store.getters.getCartTotalPrice);
+const totalQuantity = computed(() => store.getters.getCartTotalQuantity);
 </script>
 
 <style lang="sass" scoped>
@@ -110,17 +93,6 @@ export default {
         bottom: 0
         background: rgba(0, 0, 0, 0.5)
         z-index: 999
-    &__remove-btn
-        background-color: red
-        padding: 4px 8px
-        border-radius: 8px
-        color: white
-        cursor: pointer
-        &:hover
-            background-color:#c00
-        
-
-
 /* Slide transition animations */
 .slide-enter-active,
 .slide-leave-active 

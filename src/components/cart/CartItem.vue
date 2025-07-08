@@ -12,23 +12,18 @@
     </div>
 </template>
 
-<script lang="ts">
+<script setup lang="ts">
 import type { CartItem } from '@/types/cart-item';
 import { formatPrice } from '@/lib/utils';
-export default {
-    name: "CartItem",
-    props: {
-        cartItem: {
-            type: Object as () => CartItem,
-            required: true
-        },
-    },
-    methods: {
-        removeFromCart(cartItem: CartItem) {
-            this.$store.dispatch("removeFromCart", cartItem);
-        },
-        formatPrice
-    },
+import { store } from '@/store';
+defineProps({
+    cartItem: {
+        type: Object as () => CartItem,
+        required: true
+    }
+})
+function removeFromCart(cartItem: CartItem) {
+    store.dispatch("removeFromCart", cartItem);
 }
 
 </script>
@@ -40,4 +35,12 @@ export default {
         color: black
         margin-bottom: 4px
         padding: 12px
+    &__remove-btn
+        background-color: red
+        padding: 4px 8px
+        border-radius: 8px
+        color: white
+        cursor: pointer
+        &:hover
+            background-color:#c00
 </style>
