@@ -1,27 +1,15 @@
-<script lang="ts">
+<script setup lang="ts">
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome';
 import { faCartShopping } from '@fortawesome/free-solid-svg-icons';
 import SideCart from './SideCart.vue'; // Add this import
+import { ref } from 'vue';
+const isCartOpen = ref(false);
 
-export default {
-    name: 'CartButton',
-    components: {
-        FontAwesomeIcon,
-        SideCart
-    },
-    data() {
-        return {
-            faCartShopping,
-            isCartOpen: false
-        };
-    },
-    methods: {
-        toggleCart() {
-            this.isCartOpen = !this.isCartOpen;
-        }
-    }
+function toggleCart() {
+    isCartOpen.value = !isCartOpen.value;
 }
 </script>
+
 
 <template>
     <button class="navbar__cart-btn" @click="toggleCart">
