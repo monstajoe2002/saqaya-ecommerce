@@ -1,17 +1,18 @@
 <script setup lang="ts">
 import { formatPrice } from '@/lib/utils';
-import { store } from '@/store';
+import { useSelectedProduct } from '@/store/selected-product';
 import type { Product } from '@/types/product';
 import { computed, onMounted } from 'vue';
 import { useRoute } from 'vue-router';
 const route = useRoute();
+const selectedProductStore = useSelectedProduct(); // Access the selected product store
 const product = computed(() => {
-    return store.getters.getProduct as Product | null;
+    return selectedProductStore.getProduct as Product | null;
 });
 
 onMounted(() => {
     const id = Number(route.params.id);
-    store.dispatch("fetchProduct", id);
+    selectedProductStore.fetchProduct(id)
 });
 </script>
 

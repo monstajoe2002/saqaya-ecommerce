@@ -1,32 +1,27 @@
-import type { Store } from 'vuex/types/index.js'
-import type { State } from '.'
 import type { Product } from '@/types/product'
+import { defineStore } from 'pinia'
+interface State {
+  selectedProduct: Product | null
+}
 
-export const selectedProductModule = {
-  state: () => ({
+export const useSelectedProduct = defineStore('selectedProduct', {
+  state: (): State => ({
     selectedProduct: null,
   }),
   getters: {
-    getProduct(state: State) {
+    getProduct(state: State): Product | null {
       return state.selectedProduct
     },
   },
   actions: {
-    fetchProduct({ commit }: Store<State>, id: number) {
+    async fetchProduct(id: number) {
       const baseURL = `https://fakestoreapi.com/products/${id}`
-      fetch(baseURL)
-        .then((res) => res.json())
-        .then((response) => {
-          commit('setProductData', response)
-        })
-        .catch((e) => {
-          console.log(e)
-        })
+      const response = await fetch(baseURL)
+      const data = await response.json()
+      this.setProductData(data)
+    },
+    setProductData(product: Product) {
+      this.$state.selectedProduct = product
     },
   },
-  mutations: {
-    setProductData(state: State, product: Product) {
-      state.selectedProduct = product
-    },
-  },
-}
+})

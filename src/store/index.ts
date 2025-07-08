@@ -3,7 +3,7 @@ import { useProductsStore } from './products'
 import type { Product } from '@/types/product'
 import type { CartItem } from '@/types/cart-item'
 import { useCartItems } from './cart-items'
-import { selectedProductModule } from './selected-product'
+import { useSelectedProduct } from './selected-product'
 export interface State {
   cartItems: Array<CartItem>
   products: Array<Product>
@@ -13,6 +13,6 @@ export const store = createStore({
   modules: {
     products: useProductsStore,
     cartItems: useCartItems,
-    selectedProduct: selectedProductModule,
+    selectedProduct: useSelectedProduct,
   },
 })
