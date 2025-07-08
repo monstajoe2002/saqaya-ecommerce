@@ -110,12 +110,6 @@ export default {
         bottom: 0
         background: rgba(0, 0, 0, 0.5)
         z-index: 999
-    &__item
-        display: flex
-        background-color:#90bfdf
-        color: black
-        margin-bottom: 4px
-        padding: 12px
     &__remove-btn
         background-color: red
         padding: 4px 8px

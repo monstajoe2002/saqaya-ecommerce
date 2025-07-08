@@ -30,7 +30,7 @@ export const cartItemsModule = {
         state.cartItems.push(newCartItem)
       }
       existingCartItem.quantity += 1
-      existingCartItem.price += existingCartItem.price
+      existingCartItem.price += newCartItem.price
     },
     REMOVE_FROM_CART(state: State, cartItem: CartItem) {
       const cart = state.cartItems

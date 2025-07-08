@@ -1,5 +1,5 @@
 <template>
-    <div v-for="cartItem in cartItems" :key="cartItem.title" class="cart__item">
+    <div class="cart__item">
         <img :src="cartItem.image" :alt="cartItem.title" width="40" height="40" />
         <div>
             <span>{{ cartItem.title }}</span>
@@ -24,25 +24,20 @@ export default {
         },
     },
     methods: {
-        toggleCart(isOpen: boolean) {
-            this.$emit("toggle-cart", isOpen); // Emit the toggle event to the parent component CartButton
-        },
         removeFromCart(cartItem: CartItem) {
             this.$store.dispatch("removeFromCart", cartItem);
         },
         formatPrice
     },
-    computed: {
-        cartItems() {
-            return this.$store.getters.getCartItems as CartItem[];
-        },
-        totalPrice() {
-            return this.$store.getters.getCartTotalPrice;
-        },
-        totalQuantity() {
-            return this.$store.getters.getCartTotalQuantity;
-        },
-    },
 }
 
 </script>
+<style scoped lang="sass">
+.cart
+    &__item
+        display: flex
+        background-color:#90bfdf
+        color: black
+        margin-bottom: 4px
+        padding: 12px
+</style>
