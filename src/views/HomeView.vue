@@ -7,7 +7,7 @@ const productsStore = useProductsStore()
 const products = computed(() => {
   return productsStore.getProducts;
 })
-onMounted(() => productsStore.fetchProducts(productsStore.$state))
+onMounted(() => productsStore.fetchProducts())
 </script>
 
 <template>

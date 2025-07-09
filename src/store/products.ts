@@ -13,20 +13,20 @@ export const useProductsStore = defineStore('products', {
     },
   },
   actions: {
-    async fetchProducts(state: State) {
+    async fetchProducts() {
       const baseURL = 'https://fakestoreapi.com/products'
       const response = await fetch(baseURL)
       const data = await response.json()
-      this.setProductData(state, data)
+      this.setProductData(data)
     },
-    setProductData(state: State, payload: Array<Product>) {
-      state.products = payload
+    setProductData(payload: Array<Product>) {
+      this.$state.products = payload
     },
-    sortProducts(state: State, option: 'price' | 'category' | null) {
+    sortProducts(option: 'price' | 'category' | null) {
       if (option === 'price') {
-        state.products.sort((a, b) => b.price - a.price)
+        this.$state.products.sort((a, b) => b.price - a.price)
       } else if (option === 'category') {
-        state.products.sort((a, b) => a.category.localeCompare(b.category))
+        this.$state.products.sort((a, b) => a.category.localeCompare(b.category))
       }
     },
   },
