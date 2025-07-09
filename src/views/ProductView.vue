@@ -21,10 +21,13 @@ onMounted(() => {
     <div class="product-view">
         <h1 class="product-view__title">{{ product?.title }}</h1>
         <img class="product-view__image" :src="product?.image" alt="Product Image" />
+        <p class="product-view__rating">{{ product?.rating.rate }}/5</p>
+        <p class="product-view__rating">{{ product?.rating.count }} reviews</p>
         <p class="product-view__category">Category: <span class="product-view__category-label">{{ product?.category
-                }}</span></p>
+        }}</span></p>
         <p class="product-view__price">Price: <span class="product-view__price-value">{{
             formatPrice(Number(product?.price)) }}</span></p>
+
         <p class="product-view__description">{{ product?.description }}</p>
     </div>
 </template>
@@ -34,6 +37,7 @@ $product-view-title-color: #222;
 $product-view-category-color: #4a90e2;
 $product-view-price-color: #27ae60;
 $product-view-description-color: #555;
+$product-view-rating-color: #f39c12;
 
 .product-view 
     max-width: 600px;
@@ -83,5 +87,7 @@ $product-view-description-color: #555;
         font-size: 1rem;
         line-height: 1.6;
         margin-top: 1rem;
-    
+    &__rating
+        font-weight: 600;
+        color: $product-view-rating-color;
 </style>

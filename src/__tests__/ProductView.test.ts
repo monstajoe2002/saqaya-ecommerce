@@ -48,6 +48,8 @@ describe('product page', () => {
     expect(fetch).toHaveBeenCalledWith('https://fakestoreapi.com/products/1')
     expect(wrapper.text()).toContain('Test Product')
     expect(wrapper.text()).toContain('Test Category')
+    expect(wrapper.text()).toContain('4.5/5')
+    expect(wrapper.text()).toContain('10 reviews')
     expect(wrapper.text()).toContain('Test Description')
     expect(wrapper.text()).toContain('$99.99')
   })
