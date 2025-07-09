@@ -1,40 +1,54 @@
-import { mount } from '@vue/test-utils'
-import { describe, expect, test, vi } from 'vitest'
+import { flushPromises, mount } from '@vue/test-utils'
+import { beforeEach, describe, expect, test, vi } from 'vitest'
 import ProductView from '../views/ProductView.vue'
+import { useRoute } from 'vue-router'
+import { createTestingPinia } from '@pinia/testing'
+const mockProduct = {
+  id: 1,
+  title: 'Test Product',
+  category: 'Test Category',
+  rating: { rate: 4.5, count: 10 },
+  image: 'https://example.com/image.png',
+  description: 'Test Description',
+  price: 99.99,
+}
+vi.mock('vue-router', () => ({
+  useRoute: vi.fn(),
+}))
 describe('product page', () => {
-  test('Display product info', () => {
+  beforeEach(() => {
+    // Reset mocks
+    vi.resetAllMocks()
+
+    //  Mock fetch
+    global.fetch = vi.fn(() =>
+      Promise.resolve({
+        ok: true,
+        status: 200,
+        json: () => Promise.resolve(mockProduct),
+      } as Response),
+    )
+    ;(useRoute as ReturnType<typeof vi.fn>).mockReturnValue({
+      params: { id: 1 },
+    })
+  })
+  test('Display product info', async () => {
     const wrapper = mount(ProductView, {
       global: {
-        mocks: {
-          $store: {
-            getters: {
-              // mock the store's getProduct method
-              getProduct: {
-                id: 1,
-                title: 'Test Product',
-                price: 100,
-                image: 'https://picsum.photos/200/300',
-                category: 'Test Category',
-                description: 'This is a test product description.',
-              },
-            },
-            dispatch: vi.fn(),
-          },
-          $route: {
-            params: { id: 1 },
-          },
-        },
+        plugins: [
+          createTestingPinia({
+            createSpy: vi.fn,
+            stubActions: false,
+          }),
+        ],
       },
     })
-    expect(wrapper).toBeTruthy() // Check if the component is mounted successfully
-    expect(wrapper.find('.product-view__title').text()).toBe('Test Product') // Check if the product title is displayed correctly
-    expect(wrapper.find('.product-view__price-value').text()).toBe('$100.00') // Check if the product price is displayed correctly
-    expect(wrapper.find('.product-view__category-label').text()).toBe('Test Category') // Check if the product category is displayed correctly
-    expect(wrapper.find('.product-view__description').text()).toBe(
-      'This is a test product description.',
-    ) // Check if the product description is displayed correctly
-    expect(wrapper.find('.product-view__image').attributes('src')).toBe(
-      'https://picsum.photos/200/300',
-    ) // Check if the product image is displayed correctly
+    await flushPromises()
+
+    expect(fetch).toHaveBeenCalledWith('https://fakestoreapi.com/products/1')
+    expect(wrapper.text()).toContain('Test Product')
+    expect(wrapper.text()).toContain('Test Category')
+    expect(wrapper.text()).toContain('Test Description')
+    expect(wrapper.text()).toContain('$99.99')
   })
 })
