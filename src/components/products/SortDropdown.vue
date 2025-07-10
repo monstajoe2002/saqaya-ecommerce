@@ -5,7 +5,7 @@ import { ref } from 'vue';
 const selectedOption = ref(null);
 const productsStore = useProductsStore();
 function sortProducts() {
-    productsStore.sortProducts(productsStore.$state, selectedOption.value);
+    productsStore.sortProducts(selectedOption.value);
 }
 </script>
 <template>

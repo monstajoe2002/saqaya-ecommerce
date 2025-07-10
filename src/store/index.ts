@@ -1,4 +1,3 @@
-import { createStore } from 'vuex'
 import { useProductsStore } from './products'
 import type { Product } from '@/types/product'
 import type { CartItem } from '@/types/cart-item'
@@ -9,10 +8,10 @@ export interface State {
   products: Array<Product>
   selectedProduct: Product | null
 }
-export const store = createStore({
+export const store = {
   modules: {
     products: useProductsStore,
     cartItems: useCartItems,
     selectedProduct: useSelectedProduct,
   },
-})
+}
