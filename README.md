@@ -62,7 +62,6 @@ npm run dev
 |   |   `-- index.ts # Vue Router configuration, defining routes for the app
 |   |-- store
 |   |   |-- cart-items.ts # Pinia store for cart items
-|   |   |-- index.ts # Main Pinia store entry point
 |   |   |-- products.ts # Pinia store for products
 |   |   `-- selected-product.ts # Pinia store for selected product
 |   |-- types
