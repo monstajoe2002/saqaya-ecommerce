@@ -1,4 +1,4 @@
-import { flushPromises, mount } from '@vue/test-utils'
+import { flushPromises, mount, VueWrapper } from '@vue/test-utils'
 import { beforeEach, describe, expect, test, vi } from 'vitest'
 import ProductView from '../views/ProductView.vue'
 import { useRoute } from 'vue-router'
@@ -15,6 +15,7 @@ const mockProduct = {
 vi.mock('vue-router', () => ({
   useRoute: vi.fn(),
 }))
+let wrapper: VueWrapper
 describe('product page', () => {
   beforeEach(() => {
     // Reset mocks
@@ -31,9 +32,7 @@ describe('product page', () => {
     ;(useRoute as ReturnType<typeof vi.fn>).mockReturnValue({
       params: { id: 1 },
     })
-  })
-  test('Display product info', async () => {
-    const wrapper = mount(ProductView, {
+    wrapper = mount(ProductView, {
       global: {
         plugins: [
           createTestingPinia({
@@ -43,6 +42,8 @@ describe('product page', () => {
         ],
       },
     })
+  })
+  test('Display product info', async () => {
     await flushPromises()
 
     expect(fetch).toHaveBeenCalledWith('https://fakestoreapi.com/products/1')

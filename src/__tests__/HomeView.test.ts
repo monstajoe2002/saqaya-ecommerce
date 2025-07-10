@@ -1,11 +1,12 @@
-import { mount } from '@vue/test-utils'
-import { describe, expect, test, vi } from 'vitest'
+import { mount, VueWrapper } from '@vue/test-utils'
+import { beforeEach, describe, expect, test, vi } from 'vitest'
 import HomeView from '../views/HomeView.vue'
 import { createTestingPinia } from '@pinia/testing'
 import { useProductsStore } from '../store/products'
+let wrapper: VueWrapper
 describe('home page', () => {
-  test('Display products list', async () => {
-    const wrapper = mount(HomeView, {
+  beforeEach(() => {
+    wrapper = mount(HomeView, {
       global: {
         plugins: [
           createTestingPinia({
@@ -18,7 +19,8 @@ describe('home page', () => {
         },
       },
     })
-
+  })
+  test('Display products list', async () => {
     const productStore = useProductsStore()
 
     productStore.products = [
@@ -51,19 +53,6 @@ describe('home page', () => {
     const productStore = useProductsStore()
 
     productStore.products = []
-    const wrapper = mount(HomeView, {
-      global: {
-        plugins: [
-          createTestingPinia({
-            createSpy: vi.fn,
-            stubActions: false, // allow real action behavior if needed
-          }),
-        ],
-        stubs: {
-          RouterLink: true,
-        },
-      },
-    })
     await wrapper.vm.$nextTick()
     expect(wrapper).toBeTruthy() // Check if the component is mounted successfully
     expect(wrapper.find('.error-message').exists()).toBe(true) // Check if the error message is displayed
