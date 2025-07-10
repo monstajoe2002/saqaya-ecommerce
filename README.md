@@ -34,7 +34,7 @@ npm run dev
 |-- public
 |   `-- favicon.ico
 |-- src
-|   |-- App.vue # Main Vue component
+|   |-- App.vue # Main layout component that includes the NavBar and Footer
 |   |-- __tests__
 |   |   |-- Cart.test.ts # Tests for cart functionality
 |   |   |-- HomeView.test.ts # Tests for Home page
@@ -56,10 +56,10 @@ npm run dev
 |   |       |-- ProductCard.vue
 |   |       `-- SortDropdown.vue
 |   |-- lib
-|   |   `-- utils.ts
-|   |-- main.ts
+|   |   `-- utils.ts # Utility price formatting function for the app
+|   |-- main.ts # Main entry point for the Vue app
 |   |-- router
-|   |   `-- index.ts
+|   |   `-- index.ts # Vue Router configuration, defining routes for the app
 |   |-- store
 |   |   |-- cart-items.ts # Pinia store for cart items
 |   |   |-- index.ts # Main Pinia store entry point
