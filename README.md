@@ -1,6 +1,6 @@
 # SAQAYA E-Commerce
 
-A simple e-commerce app developed in Vue 3 with Typescript, Pinia and Vue Router
+A simple e-commerce app developed in Vue 3 with Typescript, Pinia and Vue Router. All styles are scoped and written in SASS/SCSS using the BEM methodology. Mobile responsive 📱.
 
 ## Project Setup
 
