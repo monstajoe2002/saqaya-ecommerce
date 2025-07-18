@@ -7,19 +7,25 @@ const productsStore = useProductsStore()
 const products = computed(() => {
   return productsStore.getProducts;
 })
-onMounted(() => productsStore.fetchProducts())
+onMounted(() => {
+  productsStore.fetchProducts()
+})
 </script>
 
 <template>
   <div>
     <SortDropdown />
-    <div v-if="products.length" class="product-grid">
+    <div v-if="productsStore.error">
+      <h1 class="error-message">Failed to load products.</h1>
+    </div>
+    <p v-if="productsStore.isLoading">
+      Loading...
+    </p>
+    <div v-else class="product-grid">
       <ProductCard v-for="product in products" :key="product.id" :id="product.id" :title="product.title"
         :image="product.image" :category="product.category" :price="product.price" />
     </div>
-    <div v-else>
-      <h1 class="error-message">Failed to load products.</h1>
-    </div>
+
   </div>
 </template>
 
