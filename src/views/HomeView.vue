@@ -16,9 +16,9 @@ onMounted(() => {
   <div>
     <SortDropdown />
     <div v-if="productsStore.error">
-      <h1 class="error-message">Failed to load products.</h1>
+      <h1 data-testid="product-error-message" class="error-message">{{ productsStore.error }}</h1>
     </div>
-    <p v-if="productsStore.isLoading">
+    <p v-else-if="productsStore.isLoading">
       Loading...
     </p>
     <div v-else class="product-grid">

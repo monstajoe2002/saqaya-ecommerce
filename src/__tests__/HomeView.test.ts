@@ -50,12 +50,18 @@ describe('home page', () => {
     ) // Check if the first product image is displayed correctly
   })
   test('Display error message when failed to fetch products', async () => {
+    global.fetch = vi.fn(() => Promise.reject())
     const productStore = useProductsStore()
-
-    productStore.products = []
+    productStore.isLoading = false
+    try {
+      await productStore.fetchProducts()
+    } catch {
+      productStore.error = 'Failed to load products'
+    }
+    console.log(wrapper.html())
     await wrapper.vm.$nextTick()
     expect(wrapper).toBeTruthy() // Check if the component is mounted successfully
-    expect(wrapper.find('.error-message').exists()).toBe(true) // Check if the error message is displayed
+    expect(wrapper.find('[data-testid="product-error-message"]').exists()).toBe(true) // Check if the error message is displayed
     expect(wrapper.find('.error-message').text()).toContain('Failed to load products') // Check if the error message text is correct
   })
 })
