@@ -18,7 +18,7 @@ onMounted(() => {
     <div v-if="productsStore.error">
       <h1 data-testid="product-error-message" class="error-message">{{ productsStore.error }}</h1>
     </div>
-    <p v-else-if="productsStore.isLoading">
+    <p v-if="productsStore.isLoading">
       Loading...
     </p>
     <div v-else class="product-grid">

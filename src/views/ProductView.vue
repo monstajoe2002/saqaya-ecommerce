@@ -18,19 +18,22 @@ onMounted(() => {
 
 
 <template>
+    <h1 style="color: red;" v-if="selectedProductStore.error">{{ selectedProductStore.error }}</h1>
+    <p v-else-if="selectedProductStore.isLoading">
+        Loading...
+    </p>
     <div v-if="product" class="product-view">
         <h1 class="product-view__title">{{ product?.title }}</h1>
         <img class="product-view__image" :src="product?.image" alt="Product Image" />
         <p class="product-view__rating">{{ product?.rating.rate }}/5</p>
         <p class="product-view__rating">{{ product?.rating.count }} reviews</p>
         <p class="product-view__category">Category: <span class="product-view__category-label">{{ product?.category
-                }}</span></p>
+        }}</span></p>
         <p class="product-view__price">Price: <span class="product-view__price-value">{{
             formatPrice(Number(product?.price)) }}</span></p>
 
         <p class="product-view__description">{{ product?.description }}</p>
     </div>
-    <h1 style="color: red;" v-else>Product does not exist</h1>
 </template>
 
 <style lang="sass" scoped>
