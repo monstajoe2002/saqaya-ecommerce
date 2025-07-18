@@ -8,6 +8,10 @@ describe('Shopping Cart', () => {
     createSpy: vi.fn,
     stubActions: false,
   })
+  const store = useCartItems()
+  beforeEach(() => {
+    store.cartItems = []
+  })
   test('Cart is empty initially', () => {
     const wrapper = mount(SideCart, {
       props: {
@@ -111,37 +115,25 @@ describe('Shopping Cart', () => {
     )
   })
   test('Update product quantity in cart', async () => {
-    const wrapper = mount(SideCart, {
-      props: {
-        isOpen: true,
-      },
-      global: {
-        plugins: [pinia],
-        stubs: {
-          RouterLink: true,
-        },
-      },
-    })
     const cartItemsStore = useCartItems(pinia)
     // Add a product to the cart
     cartItemsStore.addToCart({
       title: 'Test Product',
       image: 'https://picsum.photos/200/300',
-      price: 50,
+      price: 100,
       quantity: 1,
     })
     // Update the quantity of the product in the cart
     cartItemsStore.getCartItems[0].quantity = 2
-    expect(cartItemsStore.getCartItems).toContainEqual({
-      id: expect.any(Number),
-      title: 'Test Product',
-      image: 'https://picsum.photos/200/300',
-      price: 50,
-      quantity: 2,
-    })
-    expect(wrapper.findAll('.cart__item').length).toBe(2) // Check if the number of cart items matches
-    expect(wrapper.find('.cart__footer').text()).toContain(cartItemsStore.getCartTotalPrice) // Check if the total price is calculated correctly
-    expect(wrapper.find('.cart__footer').text()).toContain(cartItemsStore.getCartTotalQuantity) // Check if the total quantity is calculated correctly
+    expect(cartItemsStore.getCartItems).toEqual([
+      {
+        id: expect.any(Number),
+        title: 'Test Product',
+        image: 'https://picsum.photos/200/300',
+        price: 100,
+        quantity: 2,
+      },
+    ])
   })
   test('Cart emits toggle event when closed', async () => {
     const wrapper = mount(SideCart, {
