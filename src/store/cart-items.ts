@@ -29,9 +29,12 @@ export const useCartItems = defineStore('cartItems', {
       const existingCartItem = cart.find((item) => item.title === newCartItem.title) as CartItem
       if (!existingCartItem) {
         this.$state.cartItems.push(newCartItem)
+        alert('Item added to cart')
+        return
       }
       existingCartItem.quantity += 1
       existingCartItem.price += newCartItem.price
+      alert('Item quantity updated in cart')
     },
     removeFromCart(cartItem: CartItem) {
       const cart = this.$state.cartItems
