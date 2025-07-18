@@ -18,7 +18,8 @@ onMounted(() => {
 
 
 <template>
-    <h1 style="color: red;" v-if="selectedProductStore.error">{{ selectedProductStore.error }}</h1>
+    <h1 style="color: red;" data-testid="selected-product-error-message" v-if="selectedProductStore.error">{{
+        selectedProductStore.error }}</h1>
     <p v-else-if="selectedProductStore.isLoading">
         Loading...
     </p>

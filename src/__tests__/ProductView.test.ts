@@ -3,6 +3,7 @@ import { beforeEach, describe, expect, test, vi } from 'vitest'
 import ProductView from '../views/ProductView.vue'
 import { useRoute } from 'vue-router'
 import { createTestingPinia } from '@pinia/testing'
+import { useSelectedProduct } from '../store/selected-product'
 const mockProduct = {
   id: 1,
   title: 'Test Product',
@@ -53,5 +54,21 @@ describe('product page', () => {
     expect(wrapper.text()).toContain('10 reviews')
     expect(wrapper.text()).toContain('Test Description')
     expect(wrapper.text()).toContain('$99.99')
+  })
+  test('Display error message when fetching fails', async () => {
+    global.fetch = vi.fn(() => Promise.reject())
+    const product = useSelectedProduct()
+    product.isLoading = false
+    try {
+      await product.getProduct()
+    } catch {
+      product.error = 'Failed to fetch product details'
+    }
+    await wrapper.vm.$nextTick()
+    expect(wrapper).toBeTruthy() // Check if the component is mounted successfully
+    expect(wrapper.find('[data-testid="selected-product-error-message"]').exists()).toBe(true) // Check if the error message is displayed
+    expect(wrapper.find('[data-testid="selected-product-error-message"]').text()).toContain(
+      'Failed to fetch product details',
+    ) // Check if the error message text is correct
   })
 })
