@@ -6,6 +6,7 @@ import { useProductsStore } from '../store/products'
 let wrapper: VueWrapper
 describe('home page', () => {
   beforeEach(() => {
+    vi.clearAllMocks()
     wrapper = mount(HomeView, {
       global: {
         plugins: [
@@ -22,7 +23,7 @@ describe('home page', () => {
   })
   test('Display products list', async () => {
     const productStore = useProductsStore()
-
+    await productStore.fetchProducts()
     productStore.products = [
       {
         id: 1,
